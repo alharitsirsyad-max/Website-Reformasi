@@ -1,0 +1,65 @@
+.section {
+  padding: 5rem var(--section-px);
+  background: var(--surface);
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-width: 800px;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.25rem;
+  background: var(--bg);
+  border: 1px solid var(--border-s);
+  border-radius: var(--radius);
+  transition: all 0.2s;
+}
+
+.item:hover {
+  transform: translateY(-2px);
+  border-color: var(--border);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.penulis, .penerbit {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--text-3);
+}
+
+.judul {
+  font-family: var(--font-serif);
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--navy);
+}
+
+.icon {
+  color: var(--text-4);
+  transition: color 0.2s;
+}
+
+.item:hover .icon {
+  color: var(--primary);
+}
+
+@media (max-width: 560px) {
+  .item {
+    align-items: flex-start;
+  }
+  .icon {
+    margin-top: 0.25rem;
+  }
+}

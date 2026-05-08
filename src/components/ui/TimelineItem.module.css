@@ -1,0 +1,94 @@
+.item {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 2rem;
+  position: relative;
+  padding-bottom: 3rem;
+}
+
+.item:last-child {
+  padding-bottom: 0;
+}
+
+.left {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  align-items: flex-start;
+  text-align: left;
+}
+
+.tanggal {
+  font-family: var(--font-mono);
+  font-size: 14px;
+  color: var(--gold);
+  font-weight: 500;
+}
+
+.tag {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  padding: 2px 6px;
+  background: var(--surface-2);
+  color: var(--text-3);
+  border-radius: var(--radius);
+}
+
+.right {
+  position: relative;
+  padding-left: 2rem;
+  border-left: 2px solid var(--primary);
+}
+
+.highlight .right {
+  border-left: 2px solid var(--primary);
+}
+
+.right::before {
+  content: '';
+  position: absolute;
+  left: -5.5px;
+  top: 6px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--primary);
+  z-index: 1;
+}
+
+.highlight .right::before {
+  background: var(--primary);
+  left: -5.5px;
+  width: 10px;
+  height: 10px;
+}
+
+.judul {
+  font-family: var(--font-serif);
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--navy);
+  margin-bottom: 0.5rem;
+}
+
+.deskripsi {
+  font-size: 14px;
+  color: var(--text-2);
+  line-height: 1.6;
+}
+
+@media (max-width: 560px) {
+  .item {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .left {
+    flex-direction: row;
+    align-items: center;
+  }
+  
+  .right {
+    padding-left: 1.5rem;
+  }
+}

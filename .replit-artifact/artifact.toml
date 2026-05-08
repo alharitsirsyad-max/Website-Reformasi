@@ -1,0 +1,31 @@
+kind = "web"
+previewPath = "/"
+title = "Reformasi Indonesia 1998"
+version = "1.0.0"
+id = "artifacts/reformasi-1998"
+router = "path"
+
+[[integratedSkills]]
+name = "react-vite"
+version = "1.0.0"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 19958
+
+[services.development]
+run = "pnpm --filter @workspace/reformasi-1998 run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/reformasi-1998", "run", "build" ]
+publicDir = "artifacts/reformasi-1998/dist/public"
+serve = "static"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "19958"
+BASE_PATH = "/"

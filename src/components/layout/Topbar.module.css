@@ -1,0 +1,87 @@
+.topbar {
+  height: var(--nav-h);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 200;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border-s);
+  display: flex;
+  align-items: center;
+  padding: 0 1.5rem;
+  gap: 1rem;
+}
+
+.hamburger {
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--navy);
+  border-radius: var(--radius);
+  transition: background 0.2s;
+}
+
+.hamburger:hover {
+  background: var(--surface);
+}
+
+.brandContainer {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.brand {
+  font-family: var(--font-serif);
+  font-weight: 600;
+  font-size: 16px;
+  color: var(--navy);
+}
+
+.badge {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  background: var(--primary-bg);
+  border: 1px solid var(--primary-br);
+  color: var(--primary);
+  padding: 2px 6px;
+  border-radius: var(--radius);
+}
+
+.spacer {
+  flex: 1;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.navLink {
+  font-size: 13px;
+  color: var(--text-2);
+  padding: 6px 12px;
+  border-radius: var(--radius);
+  transition: all 0.2s;
+}
+
+.navLink:hover {
+  background: var(--surface);
+  color: var(--navy);
+}
+
+@media (max-width: 768px) {
+  .nav {
+    display: none;
+  }
+}
+
+@media (max-width: 560px) {
+  .badge {
+    display: none;
+  }
+}

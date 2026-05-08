@@ -1,0 +1,57 @@
+.strip {
+  background: var(--navy);
+  display: flex;
+  overflow-x: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.strip::-webkit-scrollbar {
+  display: none;
+}
+
+.item {
+  min-width: 130px;
+  padding: 0.9rem 1.5rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: rgba(255, 255, 255, 0.6);
+  border-right: 1px solid rgba(255, 255, 255, 0.05);
+  transition: all 0.2s;
+}
+
+.item:hover {
+  background: rgba(255, 255, 255, 0.05);
+  color: white;
+}
+
+.highlight {
+  background: rgba(139, 26, 26, 0.3);
+  color: white;
+}
+
+.highlight:hover {
+  background: rgba(139, 26, 26, 0.4);
+}
+
+.dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: currentColor;
+  opacity: 0.5;
+}
+
+.highlight .dot {
+  background: #ff4d4d;
+  opacity: 1;
+}
+
+.tanggal {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  white-space: nowrap;
+}

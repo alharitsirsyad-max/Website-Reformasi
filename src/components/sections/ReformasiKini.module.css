@@ -1,0 +1,63 @@
+.section {
+  padding: 5rem var(--section-px);
+  background: var(--surface);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+}
+
+.item {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.75rem;
+}
+
+.badge {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  padding: 4px 8px;
+  border-radius: var(--radius);
+  border: 1px solid transparent;
+  text-transform: uppercase;
+}
+
+.baik {
+  background: var(--teal-bg);
+  color: var(--teal);
+  border-color: var(--teal-br);
+}
+
+.proses {
+  background: var(--gold-bg);
+  color: var(--gold);
+  border-color: var(--gold-br);
+}
+
+.tantangan {
+  background: var(--primary-bg);
+  color: var(--primary);
+  border-color: var(--primary-br);
+}
+
+.judul {
+  font-family: var(--font-serif);
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--navy);
+}
+
+.deskripsi {
+  font-size: 14px;
+  color: var(--text-2);
+  line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
