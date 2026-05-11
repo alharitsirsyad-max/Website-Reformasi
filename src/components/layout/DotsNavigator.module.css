@@ -1,0 +1,68 @@
+.nav {
+  position: fixed;
+  right: 1.5rem;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  z-index: 90;
+}
+
+.dotBtn {
+  position: relative;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background: transparent;
+  cursor: pointer;
+  transition: width 0.2s, height 0.2s, background 0.2s, box-shadow 0.2s;
+  padding: 0;
+}
+
+.dotBtn:hover {
+  border-color: var(--text-3);
+}
+
+.active {
+  width: 8px;
+  height: 8px;
+  background: var(--primary);
+  border-color: var(--primary);
+  box-shadow: 0 0 0 2px var(--primary-bg);
+}
+
+.activeAmber {
+  background: var(--amber);
+  border-color: var(--amber);
+  box-shadow: 0 0 0 2px var(--amber-bg);
+}
+
+.tooltip {
+  position: absolute;
+  right: calc(100% + 10px);
+  top: 50%;
+  transform: translateY(-50%);
+  background: var(--navy);
+  color: white;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  white-space: nowrap;
+  padding: 4px 8px;
+  border-radius: 3px;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.15s;
+}
+
+.dotBtn:hover .tooltip {
+  opacity: 1;
+}
+
+/* Hidden on mobile */
+@media (max-width: 900px) {
+  .nav {
+    display: none;
+  }
+}

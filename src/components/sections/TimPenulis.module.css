@@ -1,0 +1,74 @@
+.section {
+  background: var(--surface);
+}
+
+.grid {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  margin-bottom: 2.5rem;
+}
+
+.card {
+  background: var(--bg);
+  border: 1px solid var(--border-s);
+  border-radius: 3px;
+  padding: 2rem 1.5rem;
+  width: 200px;
+  text-align: center;
+  transition: border-color 0.2s, transform 0.2s;
+}
+
+.card:hover {
+  border-color: var(--border);
+  transform: translateY(-3px);
+}
+
+.avatar {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: var(--primary-bg);
+  border: 2px solid var(--primary-br);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1rem;
+}
+
+.avatarInitial {
+  font-family: var(--font-serif);
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--primary);
+}
+
+.nama {
+  font-family: var(--font-serif);
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 0.5rem;
+}
+
+.presensi {
+  color: var(--text-4);
+  font-family: var(--font-mono);
+  font-size: 10px;
+}
+
+.note {
+  max-width: 480px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 1.25rem;
+  border: 1px solid var(--border-s);
+  border-radius: 3px;
+  background: var(--bg);
+}
+
+.noteText {
+  color: var(--text-3);
+  line-height: 1.7;
+}

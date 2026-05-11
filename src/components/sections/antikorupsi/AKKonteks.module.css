@@ -1,0 +1,145 @@
+.section {
+  background: var(--navy);
+  color: #ffffff;
+  position: relative;
+}
+
+.inner {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.title {
+  font-family: var(--font-serif);
+  font-size: clamp(28px, 4vw, 42px);
+  font-weight: 600;
+  color: #ffffff;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.intro {
+  font-size: 17px;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.85);
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto 3rem auto;
+}
+
+.faktaGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+.faktaCard {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 3px;
+  padding: 2rem;
+  transition: transform 0.2s, background 0.2s;
+}
+
+.faktaCard:hover {
+  transform: translateY(-4px);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.faktaAngka {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.angka {
+  font-family: var(--font-serif);
+  font-size: 48px;
+  font-weight: 600;
+  color: var(--primary);
+}
+
+.satuan {
+  font-family: var(--font-mono);
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.faktaLabel {
+  font-family: var(--font-serif);
+  font-size: 18px;
+  font-weight: 600;
+  color: #ffffff;
+  margin-bottom: 0.75rem;
+  line-height: 1.3;
+}
+
+.faktaDesc {
+  font-size: 14px;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.narasi {
+  background: rgba(255, 255, 255, 0.08);
+  border-left: 3px solid var(--primary);
+  padding: 2rem;
+  border-radius: 3px;
+  margin-bottom: 2rem;
+}
+
+.narasi p {
+  font-size: 16px;
+  line-height: 1.8;
+  color: rgba(255, 255, 255, 0.9);
+  margin: 0;
+}
+
+.quote {
+  position: relative;
+  padding-left: 2rem;
+  margin-top: 2rem;
+}
+
+.quoteBar {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background: var(--primary);
+  border-radius: 2px;
+}
+
+.quoteText {
+  font-family: var(--font-serif);
+  font-size: 20px;
+  font-style: italic;
+  line-height: 1.6;
+  color: #ffffff;
+  margin-bottom: 0.75rem;
+}
+
+.quoteSource {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.05em;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+@media (max-width: 768px) {
+  .faktaGrid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .faktaCard {
+    padding: 1.5rem;
+  }
+
+  .narasi {
+    padding: 1.5rem;
+  }
+}

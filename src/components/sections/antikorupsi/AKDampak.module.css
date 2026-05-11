@@ -1,0 +1,86 @@
+.title {
+  font-family: var(--font-serif);
+  font-size: clamp(28px, 4vw, 38px);
+  font-weight: 600;
+  color: var(--text);
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.intro {
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--text-3);
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto 3rem auto;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+}
+
+.column {
+  background: var(--bg);
+  border: 2px solid var(--border);
+  border-radius: 3px;
+  padding: 2rem;
+}
+
+.columnTitle {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-family: var(--font-serif);
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 1.5rem;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.listItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--text-2);
+}
+
+.iconPositif {
+  color: var(--teal);
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.iconNegatif {
+  color: var(--primary);
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+@media (max-width: 900px) {
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .column {
+    padding: 1.5rem;
+  }
+}
+
+[data-theme="dark"] .column {
+  background: var(--surface);
+  border-color: var(--border-s);
+}

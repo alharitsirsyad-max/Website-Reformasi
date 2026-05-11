@@ -1,0 +1,196 @@
+.sectionTitle {
+  font-family: var(--font-serif);
+  font-size: clamp(28px, 4vw, 38px);
+  font-weight: 600;
+  color: var(--text);
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.sectionIntro {
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--text-3);
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto 3rem auto;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+}
+
+.card {
+  position: relative;
+  background: var(--bg);
+  border: 2px solid var(--border);
+  border-radius: 3px;
+  padding: 2rem;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.nomor {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  font-family: var(--font-serif);
+  font-size: 48px;
+  font-weight: 600;
+  color: var(--primary);
+  opacity: 0.15;
+  line-height: 1;
+}
+
+.iconWrapper {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  background: var(--primary-bg);
+  color: var(--primary);
+  border-radius: 3px;
+  margin-bottom: 1rem;
+}
+
+.judul {
+  font-family: var(--font-serif);
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 0.5rem;
+}
+
+.tahun {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.05em;
+  color: var(--primary);
+  margin-bottom: 1rem;
+}
+
+.ringkasan {
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--text-3);
+  margin-bottom: 1.5rem;
+}
+
+.detail {
+  border-top: 1px solid var(--border);
+  padding-top: 1.5rem;
+  margin-top: 1rem;
+  margin-bottom: 1.5rem;
+  animation: slideDown 0.3s ease-out;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    max-height: 0;
+  }
+  to {
+    opacity: 1;
+    max-height: 1000px;
+  }
+}
+
+.detailText {
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--text-2);
+  margin-bottom: 1.5rem;
+  white-space: pre-line;
+}
+
+.tugasList {
+  background: var(--surface);
+  border-radius: 3px;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.tugasTitle {
+  font-family: var(--font-sans);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 0.75rem;
+}
+
+.tugasList ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.tugasList li {
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--text-3);
+  padding-left: 1.25rem;
+  position: relative;
+  margin-bottom: 0.5rem;
+}
+
+.tugasList li::before {
+  content: '•';
+  position: absolute;
+  left: 0;
+  color: var(--primary);
+  font-weight: bold;
+}
+
+.refLink {
+  display: inline-block;
+  font-size: 13px;
+  color: var(--primary);
+  text-decoration: none;
+  transition: opacity 0.2s;
+}
+
+.refLink:hover {
+  opacity: 0.7;
+}
+
+.toggleBtn {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.05em;
+  color: var(--text-3);
+  background: none;
+  border: 1px solid var(--border);
+  padding: 8px 16px;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+  width: 100%;
+}
+
+.toggleBtn:hover {
+  background: var(--surface);
+  color: var(--text);
+}
+
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .card {
+    padding: 1.5rem;
+  }
+}
+
+[data-theme="dark"] .card {
+  background: var(--surface);
+  border-color: var(--border-s);
+}

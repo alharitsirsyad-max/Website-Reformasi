@@ -1,0 +1,50 @@
+/* Base animation styles */
+.animateIn {
+  opacity: 0;
+  transition: opacity 0.55s ease, transform 0.55s ease;
+}
+
+.animateIn.visible {
+  opacity: 1;
+  transform: none !important;
+}
+
+/* Direction variants */
+.animateUp {
+  transform: translateY(28px);
+}
+
+.animateLeft {
+  transform: translateX(-28px);
+}
+
+.animateRight {
+  transform: translateX(28px);
+}
+
+.animateFade {
+  transform: none;
+}
+
+/* Mobile: reduce transform distance */
+@media (max-width: 768px) {
+  .animateUp {
+    transform: translateY(14px);
+  }
+
+  .animateLeft {
+    transform: translateX(-14px);
+  }
+
+  .animateRight {
+    transform: translateX(14px);
+  }
+}
+
+/* Reduce motion for accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .animateIn {
+    transition: opacity 0.3s ease;
+    transform: none !important;
+  }
+}

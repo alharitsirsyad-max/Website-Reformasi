@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Test Audio</title>
+</head>
+<body>
+  <h1>Test Audio Files</h1>
+  
+  <button onclick="testHabibie()">Test Habibie</button>
+  <button onclick="testGusDur()">Test Gus Dur</button>
+  
+  <div id="log" style="margin-top: 20px; font-family: monospace;"></div>
+
+  <script>
+    function log(msg) {
+      document.getElementById('log').innerHTML += msg + '<br>';
+      console.log(msg);
+    }
+
+    function testHabibie() {
+      log('🔊 Testing Habibie...');
+      const audio = new Audio('/sounds/habibie.mp3');
+      audio.volume = 0.9;
+      audio.play()
+        .then(() => log('✅ Habibie audio playing!'))
+        .catch(err => log('❌ Error: ' + err.message));
+    }
+
+    function testGusDur() {
+      log('🔊 Testing Gus Dur...');
+      const audio = new Audio('/sounds/gus-dur.mp3');
+      audio.volume = 0.9;
+      audio.play()
+        .then(() => log('✅ Gus Dur audio playing!'))
+        .catch(err => log('❌ Error: ' + err.message));
+    }
+
+    // Auto test on load
+    window.onload = () => {
+      log('Testing if files exist...');
+      
+      fetch('/sounds/habibie.mp3')
+        .then(r => log('✅ habibie.mp3 found (status: ' + r.status + ')'))
+        .catch(e => log('❌ habibie.mp3 NOT found'));
+      
+      fetch('/sounds/gus-dur.mp3')
+        .then(r => log('✅ gus-dur.mp3 found (status: ' + r.status + ')'))
+        .catch(e => log('❌ gus-dur.mp3 NOT found'));
+    };
+  </script>
+</body>
+</html>

@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Simple Audio Test</title>
+  <style>
+    body {
+      font-family: monospace;
+      padding: 20px;
+      background: #1a1a2e;
+      color: #fff;
+    }
+    button {
+      padding: 10px 20px;
+      margin: 10px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    #log {
+      margin-top: 20px;
+      padding: 10px;
+      background: #000;
+      border: 1px solid #333;
+      max-height: 400px;
+      overflow-y: auto;
+    }
+    .success { color: #0f0; }
+    .error { color: #f00; }
+    .info { color: #0ff; }
+  </style>
+</head>
+<body>
+  <h1>🔊 Audio Test</h1>
+  
+  <div>
+    <button onclick="testHabibie()">▶️ Test Habibie</button>
+    <button onclick="testGusDur()">▶️ Test Gus Dur</button>
+    <button onclick="stopAll()">⏹️ Stop All</button>
+  </div>
+
+  <div id="log"></div>
+
+  <script>
+    let currentAudio = null;
+
+    function log(msg, type = 'info') {
+      const div = document.createElement('div');
+      div.className = type;
+      div.textContent = new Date().toLocaleTimeString() + ' - ' + msg;
+      document.getElementById('log').prepend(div);
+      console.log(msg);
+    }
+
+    function stopAll() {
+      if (currentAudio) {
+        currentAudio.pause();
+        currentAudio = null;
+        log('⏹️ Stopped', 'info');
+      }
+    }
+
+    function testHabibie() {
+      log('🔊 Testing Habibie...', 'info');
+      stopAll();
+      
+      currentAudio = new Audio('/sounds/habibie.mp3');
+      currentAudio.volume = 0.9;
+      currentAudio.loop = true;
+      
+      currentAudio.addEventListener('loadstart', () => log('📥 Loading habibie.mp3...', 'info'));
+      currentAudio.addEventListener('canplay', () => log('✅ Can play habibie.mp3', 'success'));
+      currentAudio.addEventListener('playing', () => log('▶️ Playing habibie.mp3', 'success'));
+      currentAudio.addEventListener('error', (e) => {
+        log('❌ Error loading habibie.mp3: ' + e.message, 'error');
+        log('❌ Error code: ' + currentAudio.error?.code, 'error');
+      });
+      
+      currentAudio.play()
+        .then(() => log('✅ Play started successfully', 'success'))
+        .catch(err => log('❌ Play failed: ' + err.message, 'error'));
+    }
+
+    function testGusDur() {
+      log('🔊 Testing Gus Dur...', 'info');
+      stopAll();
+      
+      currentAudio = new Audio('/sounds/gus-dur.mp3');
+      currentAudio.volume = 0.9;
+      currentAudio.loop = true;
+      
+      currentAudio.addEventListener('loadstart', () => log('📥 Loading gus-dur.mp3...', 'info'));
+      currentAudio.addEventListener('canplay', () => log('✅ Can play gus-dur.mp3', 'success'));
+      currentAudio.addEventListener('playing', () => log('▶️ Playing gus-dur.mp3', 'success'));
+      currentAudio.addEventListener('error', (e) => {
+        log('❌ Error loading gus-dur.mp3: ' + e.message, 'error');
+        log('❌ Error code: ' + currentAudio.error?.code, 'error');
+      });
+      
+      currentAudio.play()
+        .then(() => log('✅ Play started successfully', 'success'))
+        .catch(err => log('❌ Play failed: ' + err.message, 'error'));
+    }
+
+    // Auto test on load
+    window.onload = () => {
+      log('🔍 Checking if files exist...', 'info');
+      
+      fetch('/sounds/habibie.mp3')
+        .then(r => {
+          if (r.ok) {
+            log('✅ habibie.mp3 found (status: ' + r.status + ')', 'success');
+            return r.blob();
+          } else {
+            log('❌ habibie.mp3 NOT found (status: ' + r.status + ')', 'error');
+          }
+        })
+        .then(blob => {
+          if (blob) {
+            log('📦 habibie.mp3 size: ' + (blob.size / 1024).toFixed(2) + ' KB', 'info');
+          }
+        })
+        .catch(e => log('❌ habibie.mp3 fetch error: ' + e.message, 'error'));
+      
+      fetch('/sounds/gus-dur.mp3')
+        .then(r => {
+          if (r.ok) {
+            log('✅ gus-dur.mp3 found (status: ' + r.status + ')', 'success');
+            return r.blob();
+          } else {
+            log('❌ gus-dur.mp3 NOT found (status: ' + r.status + ')', 'error');
+          }
+        })
+        .then(blob => {
+          if (blob) {
+            log('📦 gus-dur.mp3 size: ' + (blob.size / 1024).toFixed(2) + ' KB', 'info');
+          }
+        })
+        .catch(e => log('❌ gus-dur.mp3 fetch error: ' + e.message, 'error'));
+      
+      log('✅ Test page loaded. Click buttons to test audio.', 'success');
+    };
+  </script>
+</body>
+</html>

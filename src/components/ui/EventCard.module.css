@@ -1,0 +1,144 @@
+.card {
+  background: var(--bg);
+  border: 1px solid var(--border-s);
+  border-radius: 3px;
+  padding: 1.25rem;
+  transition: border-color 0.2s, transform 0.2s;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+/* Card in bg-surface section */
+:global(.bg-surface) .card {
+  background: var(--bg);
+}
+
+/* Card in bg-main section */
+:global(.bg-main) .card {
+  background: var(--surface);
+}
+
+/* Dark mode overrides */
+[data-theme="dark"] .card {
+  background: var(--surface) !important;
+}
+
+[data-theme="dark"] :global(.bg-surface) .card {
+  background: var(--surface) !important;
+}
+
+[data-theme="dark"] :global(.bg-main) .card {
+  background: var(--surface-2) !important;
+}
+
+.card:hover {
+  border-color: var(--border);
+  transform: translateY(-2px);
+}
+
+.highlight {
+  border-color: var(--primary-br);
+  background: var(--primary-bg);
+}
+
+.dateLine {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  transition: background 0.2s;
+}
+
+.date {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  color: var(--text-3);
+  text-transform: uppercase;
+}
+
+.tag {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--primary);
+  background: var(--primary-bg);
+  border: 1px solid var(--primary-br);
+  border-radius: 3px;
+  padding: 1px 6px;
+}
+
+.title {
+  font-family: var(--font-serif);
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 0.4rem;
+  line-height: 1.4;
+}
+
+.desc {
+  font-size: 13px;
+  color: var(--text-2);
+  line-height: 1.7;
+  margin-bottom: 0.75rem;
+}
+
+.imgWrap {
+  margin-bottom: 0.75rem;
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.img {
+  width: 100%;
+  aspect-ratio: 16/9;
+  object-fit: cover;
+  border-radius: 3px;
+}
+
+.caption {
+  margin-top: 4px;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--text-4);
+}
+
+.links {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.refLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.06em;
+  color: var(--text-3);
+  text-decoration: none;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 1px;
+  transition: color 0.15s, border-color 0.15s;
+}
+
+.refLink:hover {
+  color: var(--primary);
+  border-color: var(--primary);
+}
+
+.videoLink:hover {
+  color: var(--gold);
+  border-color: var(--gold);
+}

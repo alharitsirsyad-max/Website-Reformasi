@@ -1,0 +1,123 @@
+.title {
+  font-family: var(--font-serif);
+  font-size: clamp(28px, 4vw, 38px);
+  font-weight: 600;
+  color: var(--text);
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.intro {
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--text-3);
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto 3rem auto;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  gap: 2rem;
+}
+
+.card {
+  background: var(--bg);
+  border: 2px solid var(--border);
+  border-radius: 3px;
+  padding: 2rem;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.tahun {
+  font-family: var(--font-serif);
+  font-size: 32px;
+  font-weight: 600;
+  color: var(--primary);
+  margin-bottom: 1rem;
+}
+
+.judul {
+  font-family: var(--font-serif);
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 1rem;
+  line-height: 1.3;
+}
+
+.pelaku {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--text-3);
+  margin-bottom: 1rem;
+}
+
+.label {
+  color: var(--text-4);
+}
+
+.kerugian {
+  font-family: var(--font-serif);
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--primary);
+  margin-bottom: 1rem;
+}
+
+.vonis {
+  margin-bottom: 1rem;
+}
+
+.vonisBadge {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 500;
+  background: var(--teal-bg);
+  color: var(--teal);
+  border: 1px solid var(--teal-br);
+  padding: 4px 10px;
+  border-radius: 3px;
+}
+
+.catatan {
+  font-size: 14px;
+  font-style: italic;
+  line-height: 1.6;
+  color: var(--text-3);
+  margin-bottom: 1rem;
+}
+
+.refLink {
+  display: inline-block;
+  font-size: 13px;
+  color: var(--primary);
+  text-decoration: none;
+  transition: opacity 0.2s;
+}
+
+.refLink:hover {
+  opacity: 0.7;
+}
+
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .card {
+    padding: 1.5rem;
+  }
+}
+
+[data-theme="dark"] .card {
+  background: var(--surface);
+  border-color: var(--border-s);
+}

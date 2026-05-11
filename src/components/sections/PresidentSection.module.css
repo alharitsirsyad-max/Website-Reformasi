@@ -1,0 +1,1086 @@
+.section {
+  min-height: 60vh;
+}
+
+.innerFull {
+  width: 100%;
+}
+
+/* ─── Layout A / A-flip ─────────── */
+.layoutA,
+.layoutAflip {
+  display: grid;
+  grid-template-columns: 2fr 3fr;
+  gap: 3rem;
+  align-items: flex-start;
+}
+
+.layoutAflip {
+  grid-template-columns: 3fr 2fr;
+}
+
+.colLeft {
+  min-width: 0;
+}
+
+.stickyPhoto {
+  position: sticky;
+  top: calc(var(--nav-h) + 1rem);
+}
+
+.photoWrap {
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.photo {
+  width: 100%;
+  aspect-ratio: 3/4;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+}
+
+.photoCaption {
+  margin-top: 6px;
+  color: var(--text-4);
+  font-family: var(--font-mono);
+  font-size: 10px;
+}
+
+.photoLisensi {
+  color: var(--text-4);
+  font-family: var(--font-mono);
+  font-size: 9px;
+  margin-top: 2px;
+}
+
+/* Photo side content (events below photo) */
+.photoSideContent {
+  margin-top: 2.5rem;
+  padding: 2rem;
+  border: 2px solid var(--border);
+  border-radius: 3px;
+  background: #FFFFFF;
+  position: relative;
+}
+
+.photoSideContent::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  width: 80px;
+  height: 2px;
+  background: var(--primary);
+}
+
+/* Remove box border for Megawati's timeline (Layout E) */
+.photoSideContent:has(.megaTimeline) {
+  border: none;
+  background: transparent;
+  padding: 0;
+  padding-top: 2.5rem;
+}
+
+.photoSideContent:has(.megaTimeline)::before {
+  display: none;
+}
+
+/* Habibie (bg-surface) - events cream inside white box */
+:global(.bg-surface) .photoSideContent .eventCompact {
+  background: #F2EDE8;
+}
+
+[data-theme="dark"] .photoSideContent {
+  border-color: var(--border-s);
+  background: var(--bg);
+}
+
+[data-theme="dark"] .photoSideContent .eventCompact {
+  background: var(--surface) !important;
+}
+
+.eventList {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.eventCompact {
+  padding: 1rem;
+  background: var(--bg);
+  border: 1px solid var(--border-s);
+  border-radius: 3px;
+  transition: all 0.2s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Surface background for main sections */
+:global(.bg-main) .eventCompact {
+  background: var(--surface);
+  border-color: var(--border);
+}
+
+/* Dark mode overrides */
+[data-theme="dark"] .eventCompact {
+  background: var(--surface) !important;
+}
+
+[data-theme="dark"] :global(.bg-main) .eventCompact {
+  background: var(--surface-2) !important;
+}
+
+.eventCompact:hover {
+  border-color: var(--primary);
+  box-shadow: 0 2px 12px rgba(0,0,0,0.1);
+}
+
+:global(.bg-main) .eventCompact:hover {
+  border-color: var(--primary);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+.eventDate {
+  display: block;
+  color: var(--primary);
+  margin-bottom: 0.5rem;
+}
+
+.eventTitle {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 0.5rem;
+  line-height: 1.4;
+}
+
+.eventDesc {
+  font-size: 13px;
+  color: var(--text-3);
+  line-height: 1.6;
+  margin-bottom: 0.5rem;
+}
+
+.eventRef {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--primary);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.eventRef:hover {
+  color: var(--text);
+}
+
+.colRight {
+  min-width: 0;
+}
+
+.presidentName {
+  font-family: var(--font-serif);
+  font-size: clamp(22px, 3vw, 36px);
+  font-weight: 600;
+  color: var(--text);
+  margin-top: 0.4rem;
+  margin-bottom: 0.5rem;
+}
+
+.growLine {
+  height: 2px;
+  width: 0;
+  background: var(--primary);
+  border-radius: 3px;
+  margin-bottom: 1.25rem;
+  animation: growLine 0.7s ease 0.3s forwards;
+}
+
+@keyframes growLine {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+.quote {
+  border-left: 3px solid var(--primary);
+  padding-left: 1rem;
+  margin: 1rem 0 1.25rem;
+  border-radius: 0 3px 3px 0;
+}
+
+.quoteText {
+  font-family: var(--font-serif);
+  font-size: 16px;
+  font-style: italic;
+  color: var(--text-2);
+  line-height: 1.65;
+  margin-bottom: 0.4rem;
+}
+
+.quoteSource {
+  color: var(--text-4);
+}
+
+.ringkasan {
+  font-size: 15px;
+  color: var(--text-2);
+  line-height: 1.75;
+  margin-bottom: 1.5rem;
+}
+
+.contentBlock {
+  margin-top: 3rem;
+  padding-top: 2.5rem;
+  border-top: 2px solid var(--border);
+  position: relative;
+}
+
+.contentBlock::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: 0;
+  width: 80px;
+  height: 2px;
+  background: var(--primary);
+}
+
+[data-theme="dark"] .contentBlock {
+  border-top-color: var(--border-s);
+}
+
+/* Add box around Peristiwa Penting section */
+.contentBlock:has(.zigzag),
+.contentBlock:has(.eventGrid),
+.contentBlock:has(.gusdurEventList) {
+  border: 2px solid var(--border);
+  border-radius: 3px;
+  padding: 2rem;
+  background: var(--bg);
+  margin-top: 3rem;
+}
+
+/* Remove box for SBY, Jokowi, Prabowo */
+:global(#sby) .contentBlock:has(.zigzag),
+:global(#jokowi) .contentBlock:has(.eventGrid),
+:global(#prabowo) .contentBlock:has(.eventGrid) {
+  border: none;
+  background: transparent;
+  padding: 0;
+  padding-top: 3rem;
+}
+
+:global(#sby) .contentBlock:has(.zigzag)::before,
+:global(#jokowi) .contentBlock:has(.eventGrid)::before,
+:global(#prabowo) .contentBlock:has(.eventGrid)::before {
+  display: none;
+}
+
+/* Gus Dur (bg-main) - Box putih */
+:global(.bg-main) .contentBlock:has(.zigzag),
+:global(.bg-main) .contentBlock:has(.eventGrid),
+:global(.bg-main) .contentBlock:has(.gusdurEventList) {
+  background: #FFFFFF;
+}
+
+/* Habibie (bg-surface) - Box cream, events putih */
+:global(.bg-surface) .contentBlock:has(.zigzag),
+:global(.bg-surface) .contentBlock:has(.eventGrid) {
+  background: #F2EDE8;
+}
+
+:global(.bg-surface) .contentBlock:has(.zigzag) .eventCompact,
+:global(.bg-surface) .contentBlock:has(.eventGrid) .card {
+  background: #FFFFFF;
+}
+
+[data-theme="dark"] .contentBlock:has(.zigzag),
+[data-theme="dark"] .contentBlock:has(.eventGrid),
+[data-theme="dark"] .contentBlock:has(.gusdurEventList) {
+  border-color: var(--border-s);
+  background: var(--bg);
+}
+
+.subTitleWrap {
+  margin-bottom: 1.5rem;
+}
+
+.subTitle {
+  font-family: var(--font-serif);
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 0.5rem;
+}
+
+.subLine {
+  height: 2px;
+  width: 40px;
+  border-radius: 3px;
+}
+
+.jabatan {
+  display: block;
+  margin-top: 4px;
+}
+
+.kebijakanGrid {
+  display: grid;
+  gap: 1rem;
+  align-items: stretch;
+}
+
+.kebijakanGrid > * {
+  display: flex;
+}
+
+.eventGrid {
+  display: grid;
+  gap: 1rem;
+  align-items: stretch;
+}
+
+.eventGrid > * {
+  display: flex;
+}
+
+/* ─── Header Split (Portrait photo + info side by side) ─── */
+.headerSplit {
+  display: grid;
+  grid-template-columns: 2fr 3fr;
+  gap: 3rem;
+  align-items: flex-start;
+  padding: 3rem var(--section-px);
+  max-width: var(--content-max);
+  margin: 0 auto;
+}
+
+.headerSplitPhoto {
+  position: relative;
+  width: 100%;
+  border-radius: 3px;
+  overflow: visible;
+}
+
+.headerSplitImg {
+  width: 100%;
+  aspect-ratio: 3/4;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+  border-radius: 3px;
+}
+
+.headerSplitPhoto .photoCaption {
+  margin-top: 6px;
+  color: var(--text-4);
+  font-family: var(--font-mono);
+  font-size: 10px;
+}
+
+.headerSplitPhoto .photoLisensi {
+  color: var(--text-4);
+  font-family: var(--font-mono);
+  font-size: 9px;
+  margin-top: 2px;
+}
+
+.headerSplitInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding-top: 0.5rem;
+}
+
+.headerSplitName {
+  font-family: var(--font-serif);
+  font-size: clamp(24px, 3.5vw, 42px);
+  font-weight: 600;
+  color: var(--text);
+  margin: 0.5rem 0;
+  line-height: 1.2;
+}
+
+/* ─── Layout B / B-alt / D ─────── */
+.fullPhotoWrap {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  background: var(--navy);
+  flex-shrink: 0;
+}
+
+.fullPhoto {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+}
+
+.fullPhotoOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(26,26,46,0) 30%, rgba(26,26,46,0.8) 100%);
+}
+
+.fullPhotoText {
+  position: absolute;
+  bottom: 1.5rem;
+  left: var(--section-px);
+  color: white;
+}
+
+.fullPhotoName {
+  font-family: var(--font-serif);
+  font-size: clamp(22px, 3vw, 36px);
+  font-weight: 600;
+  color: white;
+  margin: 0.25rem 0;
+}
+
+.periodeBadge {
+  display: inline-block;
+  background: var(--primary);
+  color: white;
+  padding: 3px 10px;
+  border-radius: 3px;
+  margin-bottom: 0.4rem;
+}
+
+.layoutBContent {
+  padding: 0 var(--section-px) 3rem;
+  max-width: var(--content-max);
+  margin: -3.5rem auto 0;
+}
+
+/* ─── Layout C header ────────────── */
+.cHeader {
+  position: relative;
+  width: 100%;
+  height: 480px;
+  overflow: hidden;
+  background: var(--navy);
+}
+
+.cHeaderImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+}
+
+.cHeaderOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(26,26,46,0.2) 0%, rgba(26,26,46,0.75) 100%);
+}
+
+.cHeaderText {
+  position: absolute;
+  bottom: 1.5rem;
+  left: var(--section-px);
+  color: white;
+}
+
+.cHeaderName {
+  font-family: var(--font-serif);
+  font-size: clamp(22px, 3vw, 36px);
+  font-weight: 600;
+  color: white;
+  margin: 0.25rem 0;
+}
+
+.cPeriodeBadge {
+  position: absolute;
+  top: 1rem;
+  left: var(--section-px);
+  background: var(--teal);
+  color: white;
+  padding: 3px 10px;
+  border-radius: 3px;
+}
+
+/* ─── Zigzag timeline ────────────── */
+.zigzag {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+.zigzagLine {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: var(--border);
+  transform: translateX(-50%);
+}
+
+.zigzagItem {
+  display: grid;
+  grid-template-columns: 1fr 40px 1fr;
+  gap: 0;
+  align-items: center;
+  position: relative;
+}
+
+.zigzagLeft .zigzagVisual { order: 1; padding-right: 1.5rem; }
+.zigzagLeft .zigzagDot    { order: 2; }
+.zigzagLeft .zigzagText   { order: 3; padding-left: 1.5rem; }
+
+.zigzagRight .zigzagVisual { order: 3; padding-left: 1.5rem; }
+.zigzagRight .zigzagDot    { order: 2; }
+.zigzagRight .zigzagText   { order: 1; padding-right: 1.5rem; text-align: right; }
+
+.zigzagImg {
+  width: 100%;
+  aspect-ratio: 16/9;
+  object-fit: cover;
+  border-radius: 3px;
+}
+
+.zigzagPlaceholder {
+  width: 100%;
+  height: 120px;
+  border-radius: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.zigzagDate {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  color: rgba(255,255,255,0.7);
+  letter-spacing: 0.1em;
+}
+
+.zigzagDot {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+}
+
+.zigzagDotInner {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  display: block;
+  border: 2px solid var(--bg);
+}
+
+.zigzagTanggal {
+  display: block;
+  color: var(--text-3);
+  margin-bottom: 0.3rem;
+}
+
+.zigzagTitle {
+  font-family: var(--font-serif);
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 0.4rem;
+  line-height: 1.35;
+}
+
+.zigzagDesc {
+  font-size: 13px;
+  color: var(--text-2);
+  line-height: 1.65;
+}
+
+.zigzagRef {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--text-3);
+  text-decoration: none;
+  border-bottom: 1px solid var(--border);
+  margin-top: 0.4rem;
+  transition: color 0.15s;
+}
+
+.zigzagRef:hover {
+  color: var(--primary);
+  border-color: var(--primary);
+}
+
+/* ─── Pull quote (Jokowi) ────────── */
+.pullQuote {
+  display: flex;
+  gap: 1rem;
+  margin: 1rem 0 1.25rem;
+}
+
+.pullQuoteBar {
+  width: 3px;
+  background: var(--primary);
+  border-radius: 3px;
+  flex-shrink: 0;
+}
+
+.pullQuoteText {
+  font-family: var(--font-serif);
+  font-size: 22px;
+  font-style: italic;
+  color: var(--text-2);
+  line-height: 1.5;
+}
+
+/* ─── Layout D (Prabowo / Amber) ─── */
+.dHeader {
+  position: relative;
+  width: 100%;
+  height: 480px;
+  overflow: hidden;
+  background: var(--navy);
+}
+
+.dHeaderImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+}
+
+.dHeaderOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(26,26,46,0.1) 0%, rgba(26,26,46,0.75) 100%);
+}
+
+.dHeaderText {
+  position: absolute;
+  bottom: 1.5rem;
+  left: var(--section-px);
+  color: white;
+}
+
+.dBadge {
+  display: inline-block;
+  border: 1px solid var(--amber-br);
+  color: var(--amber);
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  padding: 3px 10px;
+  border-radius: 3px;
+  margin-bottom: 0.4rem;
+}
+
+.dNameRow {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.dPulse {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--amber);
+  animation: pulseDot 2s ease-in-out infinite;
+}
+
+.dName {
+  font-family: var(--font-serif);
+  font-size: clamp(22px, 3vw, 36px);
+  font-weight: 600;
+  color: white;
+}
+
+@keyframes pulseDot {
+  0%, 100% { opacity: 0.35; }
+  50% { opacity: 1; }
+}
+
+.dNote {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  margin-top: 1.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--amber-br);
+}
+
+/* Status cards */
+.statusGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+.statusCard {
+  border: 1px solid var(--border-s);
+  border-radius: 3px;
+  overflow: hidden;
+  background: var(--bg);
+}
+
+.statusHeader {
+  padding: 0.5rem 1rem;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+.statusTercapai   { background: var(--teal-bg); color: var(--teal); border-bottom: 1px solid var(--teal-br); }
+.statusBerjalan   { background: var(--amber-bg); color: var(--amber); border-bottom: 1px solid var(--amber-br); }
+.statusDinantikan { background: var(--surface-2); color: var(--text-3); border-bottom: 1px solid var(--border); }
+
+.statusList {
+  padding: 0.75rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.statusItem {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 13px;
+  color: var(--text-2);
+  line-height: 1.4;
+}
+
+.statusDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+/* Stats box di samping foto (di kolom kanan, bawah penjelasan) */
+.statsBoxSide {
+  margin-top: 1.5rem;
+  padding: 1.25rem;
+  background: var(--surface-2);
+  border: 1px solid var(--border-s);
+  border-radius: 3px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.statItem {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.statNumber {
+  font-family: var(--font-serif);
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--primary);
+  line-height: 1;
+}
+
+.statLabel {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--text-3);
+  line-height: 1.3;
+}
+
+/* ─── Layout E (Megawati) — Presiden Perempuan Pertama + KPK Hero ─── */
+
+/* Badge presiden perempuan pertama */
+.megaBadge {
+  display: inline-flex;
+  align-items: center;
+  background: linear-gradient(135deg, #B8892A 0%, #D4A855 100%);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 3px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  box-shadow: 0 2px 8px rgba(184, 137, 42, 0.3);
+}
+
+.megaBadgeText {
+  line-height: 1.2;
+}
+
+/* Timeline dengan visual kuat */
+.megaTimeline {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  margin-top: 1rem;
+  position: relative;
+}
+
+.megaTimelineItem {
+  position: relative;
+  display: flex;
+  gap: 0.75rem;
+  padding: 0.75rem;
+  border-left: 2px solid var(--border-s);
+  border: 1px solid var(--border-s); /* Added border around the box */
+  border-radius: 3px; /* Added rounded corners */
+  margin-left: 7px;
+  margin-bottom: 0.5rem; /* Added spacing between items */
+  background: var(--bg); /* Added background */
+  transition: all 0.3s ease;
+}
+
+.megaTimelineItem:hover {
+  border-color: var(--primary); /* Border changes color on hover */
+  box-shadow: 0 2px 8px rgba(139, 26, 26, 0.1); /* Added subtle shadow on hover */
+}
+
+.megaTimelineHighlight {
+  border-color: var(--primary) !important; /* Red border for highlighted items */
+  background: linear-gradient(to right, rgba(139, 26, 26, 0.05) 0%, transparent 100%);
+  box-shadow: 0 2px 12px rgba(139, 26, 26, 0.15); /* Stronger shadow for highlights */
+  margin-left: 7px;
+  padding-left: 0.75rem;
+}
+
+.megaTimelineDot {
+  position: absolute;
+  left: -8px;
+  top: 0.85rem;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 2px solid var(--bg);
+  flex-shrink: 0;
+  z-index: 2;
+}
+
+.megaTimelineHighlight .megaTimelineDot {
+  width: 14px;
+  height: 14px;
+  left: -9px;
+  top: 0.8rem;
+  box-shadow: 0 0 0 3px rgba(139, 26, 26, 0.2);
+}
+
+.megaTimelinePulse {
+  position: absolute;
+  inset: -4px;
+  border-radius: 50%;
+  opacity: 0.3;
+  animation: megaPulse 2s ease-in-out infinite;
+}
+
+@keyframes megaPulse {
+  0%, 100% { transform: scale(1); opacity: 0.3; }
+  50% { transform: scale(1.5); opacity: 0; }
+}
+
+.megaTimelineContent {
+  flex: 1;
+  padding-left: 1rem;
+}
+
+.megaTimelineDate {
+  display: block;
+  font-size: 10px;
+  color: var(--text-4);
+  margin-bottom: 0.25rem;
+  font-weight: 600;
+}
+
+.megaTimelineHighlight .megaTimelineDate {
+  color: var(--primary);
+}
+
+.megaTimelineTitle {
+  font-family: var(--font-serif);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text);
+  line-height: 1.4;
+  margin: 0;
+}
+
+.megaTimelineHighlight .megaTimelineTitle {
+  font-size: 15px;
+  color: var(--primary);
+}
+
+.megaTimelineDesc {
+  font-size: 12px;
+  color: var(--text-3);
+  line-height: 1.5;
+  margin-top: 0.25rem;
+}
+
+/* KPK Hero Card */
+.kpkHero {
+  background: linear-gradient(135deg, #8B1A1A 0%, #A82828 100%);
+  color: white;
+  padding: 2rem;
+  border-radius: 3px;
+  box-shadow: 0 4px 20px rgba(139, 26, 26, 0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+.kpkHero::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -20%;
+  width: 200px;
+  height: 200px;
+  background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+  border-radius: 50%;
+}
+
+.kpkHeroHeader {
+  position: relative;
+  z-index: 1;
+  margin-bottom: 1rem;
+}
+
+.kpkHeroBadge {
+  display: inline-block;
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  font-family: var(--font-mono);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: 3px;
+  margin-bottom: 0.75rem;
+  backdrop-filter: blur(10px);
+}
+
+.kpkHeroTitle {
+  font-family: var(--font-serif);
+  font-size: clamp(20px, 2.5vw, 28px);
+  font-weight: 700;
+  color: white;
+  margin: 0;
+  line-height: 1.3;
+}
+
+.kpkHeroDesc {
+  font-size: 15px;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.95);
+  margin: 1rem 0;
+  position: relative;
+  z-index: 1;
+}
+
+.kpkHeroImpact {
+  background: rgba(0, 0, 0, 0.2);
+  padding: 1rem;
+  border-radius: 3px;
+  border-left: 3px solid rgba(255, 255, 255, 0.5);
+  margin: 1.25rem 0;
+  position: relative;
+  z-index: 1;
+}
+
+.kpkHeroImpactLabel {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.7);
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.kpkHeroImpactText {
+  font-size: 14px;
+  line-height: 1.6;
+  color: white;
+  margin: 0;
+}
+
+.kpkHeroLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 600;
+  color: white;
+  text-decoration: none;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.3);
+  padding-bottom: 2px;
+  transition: all 0.2s ease;
+  position: relative;
+  z-index: 1;
+}
+
+.kpkHeroLink:hover {
+  border-bottom-color: white;
+  transform: translateX(4px);
+}
+
+/* ─── Responsive ─────────────────── */
+@media (max-width: 900px) {
+  .layoutA,
+  .layoutAflip {
+    grid-template-columns: 1fr;
+  }
+  .layoutAflip .colLeft { order: 1; }
+  .layoutAflip .colRight { order: 2; }
+  .stickyPhoto { position: static; }
+  .photo { aspect-ratio: 4/3; }
+  .photoSideContent { margin-top: 1.5rem; padding-top: 1.5rem; }
+  .headerSplit {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  .headerSplitImg {
+    aspect-ratio: 16/9;
+  }
+  .kebijakanGrid { grid-template-columns: repeat(2, 1fr) !important; }
+  .eventGrid { grid-template-columns: repeat(2, 1fr) !important; }
+  .zigzagLine { display: none; }
+  .zigzagItem {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    gap: 0.75rem;
+  }
+  .zigzagLeft .zigzagVisual,
+  .zigzagRight .zigzagVisual { order: 1; padding: 0; }
+  .zigzagLeft .zigzagDot,
+  .zigzagRight .zigzagDot { display: none; }
+  .zigzagLeft .zigzagText,
+  .zigzagRight .zigzagText { order: 2; padding: 0; text-align: left; }
+  .statusGrid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 768px) {
+  .fullPhotoWrap { height: 280px !important; }
+  .cHeader { height: 280px; }
+  .dHeader { height: 280px; }
+  .kebijakanGrid { grid-template-columns: 1fr !important; }
+  .eventGrid { grid-template-columns: 1fr !important; }
+  .layoutBContent { padding: 2rem 1.25rem; }
+  .eventList { gap: 1rem; }
+  .eventCompact { padding: 0.875rem; }
+}

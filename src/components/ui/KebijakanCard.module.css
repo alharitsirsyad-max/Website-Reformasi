@@ -1,0 +1,173 @@
+.card {
+  position: relative;
+  background: var(--bg);
+  border: 1px solid var(--border-s);
+  border-radius: 3px;
+  padding: 1.25rem;
+  overflow: hidden;
+  transition: border-color 0.2s, transform 0.2s, background 0.2s, box-shadow 0.2s;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  height: 100%;
+}
+
+/* Card in bg-surface section (Habibie, Megawati, Jokowi) */
+:global(.bg-surface) .card {
+  background: var(--bg);
+}
+
+/* Card in bg-main section (Gus Dur, SBY, Prabowo) */
+:global(.bg-main) .card {
+  background: var(--surface);
+}
+
+/* Dark mode overrides */
+[data-theme="dark"] .card {
+  background: var(--surface) !important;
+}
+
+[data-theme="dark"] :global(.bg-surface) .card {
+  background: var(--surface) !important;
+}
+
+[data-theme="dark"] :global(.bg-main) .card {
+  background: var(--surface-2) !important;
+}
+
+.card:hover {
+  border-color: var(--border);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  transform: translateY(-2px);
+}
+
+[data-theme="dark"] .card:hover {
+  box-shadow: 0 2px 8px rgba(0,0,0,0.3) !important;
+}
+
+.accentBar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  border-radius: 3px 3px 0 0;
+}
+
+.iconWrap {
+  width: 36px;
+  height: 36px;
+  border-radius: 3px;
+  background: var(--surface-2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 0.25rem;
+}
+
+.header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 0.4rem;
+}
+
+.title {
+  font-family: var(--font-serif);
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text);
+  line-height: 1.35;
+  flex: 1 1 100%;
+}
+
+.kategori {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  border-radius: 3px;
+  padding: 2px 7px;
+  white-space: nowrap;
+}
+
+.katPolitik {
+  color: var(--primary);
+  background: var(--primary-bg);
+  border: 1px solid var(--primary-br);
+}
+
+.katEkonomi {
+  color: var(--gold);
+  background: var(--gold-bg);
+  border: 1px solid var(--gold-br);
+}
+
+.katHukum {
+  color: var(--teal);
+  background: var(--teal-bg);
+  border: 1px solid var(--teal-br);
+}
+
+.katSosial {
+  color: var(--text-2);
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+}
+
+.deskripsi {
+  font-size: 13px;
+  color: var(--text-2);
+  line-height: 1.7;
+  flex: 1;
+}
+
+.dampak {
+  font-size: 12px;
+  color: var(--text-3);
+  font-style: italic;
+  line-height: 1.6;
+  padding-top: 0.25rem;
+  border-top: 1px solid var(--border-s);
+}
+
+.footer {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  margin-top: 0.25rem;
+}
+
+.kontro {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  font-family: var(--font-mono);
+  font-size: 9px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--primary);
+  background: var(--primary-bg);
+  border: 1px solid var(--primary-br);
+  border-radius: 3px;
+  padding: 2px 7px;
+}
+
+.refLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--text-3);
+  text-decoration: none;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 1px;
+  transition: color 0.15s, border-color 0.15s;
+}
+
+.refLink:hover {
+  color: var(--primary);
+  border-color: var(--primary);
+}

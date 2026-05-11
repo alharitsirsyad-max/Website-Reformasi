@@ -1,0 +1,125 @@
+.title {
+  font-family: var(--font-serif);
+  font-size: clamp(28px, 4vw, 38px);
+  font-weight: 600;
+  color: var(--text);
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.paragraf {
+  font-size: 16px;
+  line-height: 1.8;
+  color: var(--text-2);
+  margin-bottom: 1.5rem;
+}
+
+.quote {
+  position: relative;
+  padding-left: 2rem;
+  margin: 3rem 0;
+}
+
+.quoteBar {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background: var(--primary);
+  border-radius: 2px;
+}
+
+.quoteText {
+  font-family: var(--font-serif);
+  font-size: 20px;
+  font-style: italic;
+  line-height: 1.6;
+  color: var(--text);
+  margin-bottom: 0.75rem;
+}
+
+.quoteSource {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.05em;
+  color: var(--text-4);
+}
+
+.ajakanSection {
+  background: var(--primary-bg);
+  border: 2px solid var(--primary-br);
+  border-radius: 3px;
+  padding: 2.5rem;
+  margin-top: 3rem;
+}
+
+.ajakanTitle {
+  font-family: var(--font-serif);
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--text);
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.ajakanGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1rem;
+}
+
+.ajakanCard {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: var(--bg);
+  border: 2px solid var(--border);
+  border-radius: 3px;
+  padding: 1.25rem 1.5rem;
+  color: var(--text);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  transition: transform 0.2s, border-color 0.2s, background 0.2s;
+}
+
+.ajakanCard:hover {
+  transform: translateX(4px);
+  border-color: var(--primary);
+  background: var(--surface);
+}
+
+.arrow {
+  margin-left: auto;
+  color: var(--primary);
+  transition: transform 0.2s;
+}
+
+.ajakanCard:hover .arrow {
+  transform: translateX(4px);
+}
+
+@media (max-width: 768px) {
+  .ajakanSection {
+    padding: 2rem 1.5rem;
+  }
+
+  .ajakanGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+[data-theme="dark"] .ajakanCard {
+  background: var(--surface);
+  border-color: var(--border-s);
+}
+
+[data-theme="dark"] .ajakanCard:hover {
+  background: var(--surface-2);
+}

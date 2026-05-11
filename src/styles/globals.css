@@ -1,0 +1,398 @@
+/* =====================================================
+   REFORMASI INDONESIA — Global Styles & CSS Variables
+   ===================================================== */
+
+:root {
+  /* Backgrounds */
+  --bg:           #FAFAF8;
+  --surface:      #F2EDE8;
+  --surface-2:    #E8E0D8;
+  --border:       #D8CFC6;
+  --border-s:     #EAE4DC;
+
+  /* Primary (deep red) */
+  --primary:      #8B1A1A;
+  --primary-bg:   rgba(139,26,26,0.07);
+  --primary-br:   rgba(139,26,26,0.22);
+
+  /* Gold */
+  --gold:         #B8892A;
+  --gold-bg:      rgba(184,137,42,0.08);
+  --gold-br:      rgba(184,137,42,0.25);
+
+  /* Teal */
+  --teal:         #0F6E56;
+  --teal-bg:      rgba(15,110,86,0.08);
+  --teal-br:      rgba(15,110,86,0.2);
+
+  /* Amber (Prabowo only) */
+  --amber:        #EF9F27;
+  --amber-bg:     rgba(239,159,39,0.10);
+  --amber-br:     rgba(239,159,39,0.30);
+
+  /* Navy */
+  --navy:         #1A1A2E;
+  --navy-mid:     #3B3B5C;
+
+  /* Text */
+  --text:         #1E1A16;
+  --text-2:       #4A3F35;
+  --text-3:       #7A706A;
+  --text-4:       #A09890;
+
+  /* Typography */
+  --font-serif:   'Playfair Display', Georgia, serif;
+  --font-sans:    'Inter', system-ui, sans-serif;
+  --font-mono:    'JetBrains Mono', monospace;
+
+  /* Layout */
+  --nav-h:        56px;
+  --section-px:   clamp(1.25rem, 5vw, 5rem);
+  --content-max:  1200px;
+}
+
+/* =====================================================
+   DARK MODE
+   ===================================================== */
+
+[data-theme="dark"] {
+  /* Backgrounds */
+  --bg:           #0F0F0F;
+  --surface:      #1A1A1A;
+  --surface-2:    #252525;
+  --border:       #3A3A3A;
+  --border-s:     #2A2A2A;
+
+  /* Primary (lighter red for dark mode) */
+  --primary:      #E63946;
+  --primary-bg:   rgba(230,57,70,0.12);
+  --primary-br:   rgba(230,57,70,0.3);
+
+  /* Gold (brighter for dark mode) */
+  --gold:         #F4A261;
+  --gold-bg:      rgba(244,162,97,0.12);
+  --gold-br:      rgba(244,162,97,0.3);
+
+  /* Teal (brighter for dark mode) */
+  --teal:         #2A9D8F;
+  --teal-bg:      rgba(42,157,143,0.12);
+  --teal-br:      rgba(42,157,143,0.3);
+
+  /* Amber (brighter for dark mode) */
+  --amber:        #FFB84D;
+  --amber-bg:     rgba(255,184,77,0.12);
+  --amber-br:     rgba(255,184,77,0.3);
+
+  /* Navy (lighter for dark mode) */
+  --navy:         #0A0A0A;
+  --navy-mid:     #2A2A3A;
+
+  /* Text (inverted) */
+  --text:         #F5F5F5;
+  --text-2:       #D0D0D0;
+  --text-3:       #A0A0A0;
+  --text-4:       #707070;
+}
+
+/* Dark mode specific overrides */
+[data-theme="dark"] {
+  color-scheme: dark;
+}
+
+[data-theme="dark"] img {
+  opacity: 0.9;
+}
+
+[data-theme="dark"] .bg-main {
+  background-color: var(--bg);
+}
+
+[data-theme="dark"] .bg-surface {
+  background-color: var(--surface);
+}
+
+/* Force dark backgrounds for all cards in dark mode */
+[data-theme="dark"] [class*="card"],
+[data-theme="dark"] [class*="Card"] {
+  background-color: var(--surface) !important;
+  border-color: var(--border-s) !important;
+}
+
+/* Specific overrides for common card patterns */
+[data-theme="dark"] div[class*="card"] {
+  background: var(--surface) !important;
+}
+
+[data-theme="dark"] button[class*="card"] {
+  background: var(--surface) !important;
+}
+
+/* =====================================================
+   KEYFRAME ANIMATIONS
+   ===================================================== */
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes growLine {
+  from { width: 0; }
+  to   { width: 100%; }
+}
+
+@keyframes pulseDot {
+  0%, 100% { opacity: 0.35; }
+  50%       { opacity: 1; }
+}
+
+@keyframes sidebarSlideIn {
+  from { transform: translateX(-100%); }
+  to   { transform: translateX(0); }
+}
+
+@keyframes fadeInScale {
+  from { opacity: 0; transform: scale(0.97); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+/* =====================================================
+   RESET & BASE
+   ===================================================== */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 15px;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: var(--font-sans);
+  font-weight: 400;
+  line-height: 1.75;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+  font-family: inherit;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-serif);
+  line-height: 1.2;
+  color: var(--text);
+}
+
+h1 {
+  font-size: clamp(34px, 5.5vw, 68px);
+  font-weight: 700;
+}
+
+h2 {
+  font-size: clamp(26px, 3.5vw, 42px);
+  font-weight: 700;
+}
+
+h3 {
+  font-size: clamp(22px, 3vw, 36px);
+  font-weight: 600;
+}
+
+p {
+  font-size: 15px;
+  line-height: 1.75;
+  color: var(--text-2);
+}
+
+/* =====================================================
+   UTILITY CLASSES
+   ===================================================== */
+
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--text-3);
+}
+
+.caption {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--text-4);
+}
+
+.section-padding {
+  padding: 5rem var(--section-px);
+}
+
+.container {
+  max-width: var(--content-max);
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* =====================================================
+   SCROLLBAR HIDDEN
+   ===================================================== */
+
+.scrollbar-none {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
+
+/* =====================================================
+   SECTION ALTERNATING BACKGROUNDS
+   ===================================================== */
+
+.bg-main    { background-color: var(--bg); }
+.bg-surface { background-color: var(--surface); }
+.bg-amber   { background-color: var(--amber-bg); }
+
+
+/* ═══════════════════════════════════════════════════
+   KEYFRAME ANIMATIONS
+   ═══════════════════════════════════════════════════ */
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes growLine {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes pulseDot {
+  0%, 100% {
+    opacity: 0.4;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-28px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(28px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* Mobile: reduce transform distance */
+@media (max-width: 768px) {
+  @keyframes slideUp {
+    from {
+      opacity: 0;
+      transform: translateY(14px);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+
+  @keyframes slideInLeft {
+    from {
+      opacity: 0;
+      transform: translateX(-14px);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+
+  @keyframes slideInRight {
+    from {
+      opacity: 0;
+      transform: translateX(14px);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+}
+
+/* Reduce motion for accessibility */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

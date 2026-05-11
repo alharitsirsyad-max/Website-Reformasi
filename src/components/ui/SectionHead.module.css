@@ -1,0 +1,46 @@
+.wrap {
+  margin-bottom: 2.5rem;
+}
+
+.center {
+  text-align: center;
+}
+
+.eyebrow {
+  margin-bottom: 0.5rem;
+  color: var(--text-3);
+}
+
+.title {
+  color: var(--text);
+  margin-bottom: 0.75rem;
+}
+
+.line {
+  height: 2px;
+  width: 56px;
+  border-radius: 3px;
+  margin-bottom: 1rem;
+}
+
+.center .line {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.primary { background: var(--primary); }
+.gold    { background: var(--gold); }
+.teal    { background: var(--teal); }
+.amber   { background: var(--amber); }
+
+.subtitle {
+  max-width: 640px;
+  color: var(--text-2);
+  font-size: 15px;
+  line-height: 1.75;
+}
+
+.center .subtitle {
+  margin-left: auto;
+  margin-right: auto;
+}
