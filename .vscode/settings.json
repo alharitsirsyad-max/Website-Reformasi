@@ -1,2 +1,18 @@
 {
+  "css.validate": false,
+  "less.validate": false,
+  "scss.validate": false,
+  "css.lint.unknownAtRules": "ignore",
+  "css.lint.validProperties": [
+    "--primary", "--primary-bg", "--primary-br", "--primary-h",
+    "--gold", "--gold-bg", "--gold-br",
+    "--teal", "--teal-bg", "--teal-br",
+    "--amber", "--amber-bg", "--amber-br",
+    "--navy", "--navy-mid",
+    "--bg", "--surface", "--surface-2",
+    "--text", "--text-2", "--text-3", "--text-4",
+    "--border", "--border-s",
+    "--font-serif", "--font-sans", "--font-mono",
+    "--nav-h", "--section-px"
+  ]
 }
