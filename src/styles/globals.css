@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /* =====================================================
    REFORMASI INDONESIA — Global Styles & CSS Variables
    ===================================================== */
@@ -166,20 +167,56 @@
    ===================================================== */
 
 *, *::before, *::after {
+=======
+:root {
+  --bg:         #FAFAF8;
+  --surface:    #F2EDE8;
+  --surface-2:  #E8E0D8;
+  --border:     #D8CFC6;
+  --border-s:   #EAE4DC;
+  --primary:    #8B1A1A;
+  --primary-bg: rgba(139, 26, 26, 0.07);
+  --primary-br: rgba(139, 26, 26, 0.22);
+  --gold:       #B8892A;
+  --gold-bg:    rgba(184, 137, 42, 0.08);
+  --gold-br:    rgba(184, 137, 42, 0.25);
+  --teal:       #0F6E56;
+  --teal-bg:    rgba(15, 110, 86, 0.08);
+  --teal-br:    rgba(15, 110, 86, 0.2);
+  --navy:       #1A1A2E;
+  --text:       #1E1A16;
+  --text-2:     #4A3F35;
+  --text-3:     #7A706A;
+  --text-4:     #A09890;
+  --font-serif: 'Playfair Display', Georgia, serif;
+  --font-sans:  'Inter', system-ui, sans-serif;
+  --font-mono:  'JetBrains Mono', monospace;
+  --radius:     3px;
+  --nav-h:      56px;
+  --sidebar-w:  280px;
+  --section-px: 3rem;
+}
+
+* {
+>>>>>>> 3190796648f825b187b0275e7ca94cc8d806e837
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
+<<<<<<< HEAD
 html {
   scroll-behavior: smooth;
   font-size: 15px;
 }
 
+=======
+>>>>>>> 3190796648f825b187b0275e7ca94cc8d806e837
 body {
   background-color: var(--bg);
   color: var(--text);
   font-family: var(--font-sans);
+<<<<<<< HEAD
   font-weight: 400;
   line-height: 1.75;
   -webkit-font-smoothing: antialiased;
@@ -191,6 +228,11 @@ img {
   display: block;
   max-width: 100%;
   height: auto;
+=======
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+>>>>>>> 3190796648f825b187b0275e7ca94cc8d806e837
 }
 
 a {
@@ -199,6 +241,7 @@ a {
 }
 
 button {
+<<<<<<< HEAD
   cursor: pointer;
   border: none;
   background: none;
@@ -394,5 +437,16 @@ p {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
+=======
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+@media (max-width: 768px) {
+  :root {
+    --section-px: 1.5rem;
+>>>>>>> 3190796648f825b187b0275e7ca94cc8d806e837
   }
 }

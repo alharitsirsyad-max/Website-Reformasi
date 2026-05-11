@@ -1,0 +1,11 @@
+.section {
+  padding: 5rem var(--section-px);
+  background: var(--bg);
+}
+
+.timelineList {
+  display: flex;
+  flex-direction: column;
+  margin-top: 3rem;
+  max-width: 800px;
+}

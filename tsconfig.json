@@ -20,5 +20,9 @@
     }
   },
   "include": ["src/**/*"],
+<<<<<<< HEAD
   "exclude": ["node_modules", "build", "dist"]
+=======
+  "exclude": ["node_modules", "build", "dist", "**/*.test.ts"]
+>>>>>>> 3190796648f825b187b0275e7ca94cc8d806e837
 }

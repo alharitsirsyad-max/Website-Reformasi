@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import styles from './SectionHead.module.css';
 
 interface SectionHeadProps {
@@ -22,5 +23,26 @@ export default function SectionHead({
       <div className={`${styles.line} ${styles[accent]}`} />
       {subtitle && <p className={styles.subtitle}>{subtitle}</p>}
     </div>
+=======
+import React from 'react';
+import styles from './SectionHead.module.css';
+import { FadeUp } from './FadeUp';
+
+interface SectionHeadProps {
+  eyebrow: string;
+  judul: string;
+  lead?: string;
+}
+
+export function SectionHead({ eyebrow, judul, lead }: SectionHeadProps) {
+  return (
+    <FadeUp>
+      <div className={styles.container}>
+        <span className={styles.eyebrow}>{eyebrow}</span>
+        <h2 className={styles.judul}>{judul}</h2>
+        {lead && <p className={styles.lead}>{lead}</p>}
+      </div>
+    </FadeUp>
+>>>>>>> 3190796648f825b187b0275e7ca94cc8d806e837
   );
 }
