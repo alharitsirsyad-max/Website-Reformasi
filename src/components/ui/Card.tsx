@@ -6,13 +6,16 @@ interface CardProps {
   deskripsi: string;
   icon?: React.ReactNode;
   tag?: string;
-  accent?: 'red' | 'gold' | 'teal';
+  tanggal?: string;
+  accent?: 'red' | 'gold' | 'teal' | 'brown';
 }
 
-export function Card({ judul, deskripsi, icon, tag, accent = 'red' }: CardProps) {
+export function Card({ judul, deskripsi, icon, tag, tanggal, accent = 'red' }: CardProps) {
   return (
     <div className={`${styles.card} ${styles[`accent-${accent}`]}`}>
-      {icon && <div className={styles.iconBox}>{icon}</div>}
+      {tanggal && (
+        <div className={styles.tanggal}>{tanggal}</div>
+      )}
       <div className={styles.content}>
         <h3 className={styles.judul}>{judul}</h3>
         <p className={styles.deskripsi}>{deskripsi}</p>

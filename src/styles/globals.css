@@ -1,90 +1,84 @@
 /* =====================================================
    REFORMASI INDONESIA — Global Styles & CSS Variables
+   Anti-AI Slop Edition — Berdasarkan Design.md
    ===================================================== */
 
 :root {
-  /* Backgrounds */
-  --bg:           #FAFAF8;
-  --surface:      #F2EDE8;
-  --surface-2:    #E8E0D8;
-  --border:       #D8CFC6;
-  --border-s:     #EAE4DC;
+  /* Palet Utama — dari referensi historis Indonesia */
+  --merah-perjuangan:  #C0392B;
+  --putih-arsip:       #F5F0E8;
+  --hitam-tinta:       #1A1A1A;
+  --krem-dokumen:      #EDE5D0;
+  --abu-lama:          #8C8279;
+  --coklat-arsip:      #5C4A35;
 
-  /* Primary (deep red) */
-  --primary:      #8B1A1A;
-  --primary-bg:   rgba(139,26,26,0.07);
-  --primary-br:   rgba(139,26,26,0.22);
+  /* Palet Sekunder — digunakan hemat */
+  --kuning-sorot:      #F2C94C;
+  --hijau-tua:         #2C5F2E;
+  --biru-navy-tua:     #1B3A5C;
+  --hitam-foto:        #0D0D0D;
 
-  /* Gold */
-  --gold:         #B8892A;
-  --gold-bg:      rgba(184,137,42,0.08);
-  --gold-br:      rgba(184,137,42,0.25);
+  /* Alias untuk kemudahan */
+  --bg:                var(--putih-arsip);
+  --surface:           var(--krem-dokumen);
+  --surface-2:         #E5DCC8;
+  --border:            var(--coklat-arsip);
+  --border-s:          var(--abu-lama);
 
-  /* Teal */
-  --teal:         #0F6E56;
-  --teal-bg:      rgba(15,110,86,0.08);
-  --teal-br:      rgba(15,110,86,0.2);
+  --primary:           var(--merah-perjuangan);
+  --primary-bg:        rgba(192,57,43,0.08);
+  --primary-br:        rgba(192,57,43,0.25);
 
-  /* Amber (Prabowo only) */
-  --amber:        #EF9F27;
-  --amber-bg:     rgba(239,159,39,0.10);
-  --amber-br:     rgba(239,159,39,0.30);
-
-  /* Navy */
-  --navy:         #1A1A2E;
-  --navy-mid:     #3B3B5C;
+  --accent:            var(--merah-perjuangan);
+  --accent-brown:      var(--coklat-arsip);
+  --highlight:         var(--kuning-sorot);
 
   /* Text */
-  --text:         #1E1A16;
-  --text-2:       #4A3F35;
-  --text-3:       #7A706A;
-  --text-4:       #A09890;
+  --text:              var(--hitam-tinta);
+  --text-2:            #3A3A3A;
+  --text-3:            var(--abu-lama);
+  --text-4:            #A09890;
 
-  /* Typography */
-  --font-serif:   'Playfair Display', Georgia, serif;
-  --font-sans:    'Inter', system-ui, sans-serif;
-  --font-mono:    'JetBrains Mono', monospace;
+  /* Typography — Font dengan kepribadian */
+  --font-display:      'Playfair Display', Georgia, serif;
+  --font-body:         'Source Serif 4', 'Lora', Georgia, serif;
+  --font-ui:           'DM Sans', system-ui, sans-serif;
+  --font-mono:         'JetBrains Mono', 'Courier New', monospace;
+  
+  /* Alias untuk backward compatibility */
+  --font-serif:        var(--font-display);
+  --font-sans:         var(--font-ui);
 
   /* Layout */
-  --nav-h:        56px;
-  --section-px:   clamp(1.25rem, 5vw, 5rem);
-  --content-max:  1200px;
+  --nav-h:             56px;
+  --section-px:        clamp(1.25rem, 5vw, 5rem);
+  --content-max:       1200px;
+  --content-article:   720px;
 }
 
 /* =====================================================
-   DARK MODE
+   DARK MODE — Tetap mengikuti prinsip warna historis
    ===================================================== */
 
 [data-theme="dark"] {
-  --bg:           #0F0F0F;
-  --surface:      #1A1A1A;
-  --surface-2:    #252525;
-  --border:       #3A3A3A;
-  --border-s:     #2A2A2A;
+  --bg:                #0D0D0D;
+  --surface:           var(--hitam-tinta);
+  --surface-2:         #252525;
+  --border:            #3A3A3A;
+  --border-s:          #2A2A2A;
 
-  --primary:      #E63946;
-  --primary-bg:   rgba(230,57,70,0.12);
-  --primary-br:   rgba(230,57,70,0.3);
+  --primary:           #D94436;
+  --primary-bg:        rgba(217,68,54,0.12);
+  --primary-br:        rgba(217,68,54,0.3);
 
-  --gold:         #F4A261;
-  --gold-bg:      rgba(244,162,97,0.12);
-  --gold-br:      rgba(244,162,97,0.3);
+  --accent:            #D94436;
+  --accent-brown:      #7A6A55;
+  --highlight:         var(--kuning-sorot);
 
-  --teal:         #2A9D8F;
-  --teal-bg:      rgba(42,157,143,0.12);
-  --teal-br:      rgba(42,157,143,0.3);
-
-  --amber:        #FFB84D;
-  --amber-bg:     rgba(255,184,77,0.12);
-  --amber-br:     rgba(255,184,77,0.3);
-
-  --navy:         #0A0A0A;
-  --navy-mid:     #2A2A3A;
-
-  --text:         #F5F5F5;
-  --text-2:       #D0D0D0;
-  --text-3:       #A0A0A0;
-  --text-4:       #707070;
+  --text:              var(--putih-arsip);
+  --text-2:            #D0D0D0;
+  --text-3:            #A0A0A0;
+  --text-4:            #707070;
 }
 
 [data-theme="dark"] {
@@ -169,7 +163,7 @@ html {
 body {
   background-color: var(--bg);
   color: var(--text);
-  font-family: var(--font-sans);
+  font-family: var(--font-body);
   font-weight: 400;
   line-height: 1.75;
   -webkit-font-smoothing: antialiased;
@@ -200,19 +194,21 @@ ul, ol {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-serif);
-  line-height: 1.2;
+  font-family: var(--font-display);
+  line-height: 1.15;
   color: var(--text);
+  letter-spacing: -0.02em;
 }
 
-h1 { font-size: clamp(34px, 5.5vw, 68px); font-weight: 700; }
-h2 { font-size: clamp(26px, 3.5vw, 42px); font-weight: 700; }
-h3 { font-size: clamp(22px, 3vw, 36px);   font-weight: 600; }
+h1 { font-size: clamp(48px, 6vw, 96px); font-weight: 900; letter-spacing: -0.04em; }
+h2 { font-size: clamp(32px, 4vw, 64px); font-weight: 700; letter-spacing: -0.02em; }
+h3 { font-size: clamp(24px, 3vw, 40px); font-weight: 700; letter-spacing: -0.01em; }
 
 p {
-  font-size: 15px;
+  font-size: 17px;
   line-height: 1.75;
   color: var(--text-2);
+  font-family: var(--font-body);
 }
 
 /* =====================================================
@@ -220,18 +216,19 @@ p {
    ===================================================== */
 
 .eyebrow {
-  font-family: var(--font-mono);
-  font-size: 10px;
+  font-family: var(--font-ui);
+  font-size: 12px;
   font-weight: 500;
-  letter-spacing: 0.2em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--text-3);
 }
 
 .caption {
-  font-family: var(--font-mono);
-  font-size: 11px;
-  color: var(--text-4);
+  font-family: var(--font-ui);
+  font-size: 13px;
+  font-style: italic;
+  color: var(--text-3);
 }
 
 .container {
@@ -241,8 +238,8 @@ p {
 }
 
 .section-padding {
-  padding-top: clamp(3rem, 6vw, 6rem);
-  padding-bottom: clamp(3rem, 6vw, 6rem);
+  padding-top: clamp(5rem, 8vw, 8rem);
+  padding-bottom: clamp(5rem, 8vw, 8rem);
 }
 
 .bg-main    { background-color: var(--bg); }

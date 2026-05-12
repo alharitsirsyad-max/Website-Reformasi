@@ -1,9 +1,11 @@
+/* EventCard — Anti-AI Slop: Border kiri tebal, tanggal monospace */
+
 .card {
   background: var(--bg);
   border: 1px solid var(--border-s);
-  border-radius: 3px;
+  border-left: 4px solid var(--coklat-arsip);
   padding: 1.25rem;
-  transition: border-color 0.2s, transform 0.2s;
+  transition: border-left-width 0.15s, transform 0.15s;
   display: flex;
   flex-direction: column;
   height: 100%;
@@ -33,20 +35,19 @@
 }
 
 .card:hover {
-  border-color: var(--border);
+  border-left-width: 6px;
   transform: translateY(-2px);
 }
 
 .highlight {
-  border-color: var(--primary-br);
-  background: var(--primary-bg);
+  border-left-color: var(--merah-perjuangan);
 }
 
 .dateLine {
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.75rem;
 }
 
 .dot {
@@ -59,86 +60,94 @@
 
 .date {
   font-family: var(--font-mono);
-  font-size: 10px;
-  letter-spacing: 0.1em;
-  color: var(--text-3);
-  text-transform: uppercase;
+  font-size: 13px;
+  letter-spacing: 0.02em;
+  color: var(--abu-lama);
 }
 
 .tag {
-  font-family: var(--font-mono);
-  font-size: 9px;
-  letter-spacing: 0.08em;
+  font-family: var(--font-ui);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.05em;
   text-transform: uppercase;
-  color: var(--primary);
-  background: var(--primary-bg);
-  border: 1px solid var(--primary-br);
-  border-radius: 3px;
-  padding: 1px 6px;
+  color: var(--merah-perjuangan);
+  background: rgba(192,57,43,0.08);
+  border: 1px solid rgba(192,57,43,0.2);
+  padding: 2px 6px;
 }
 
 .title {
-  font-family: var(--font-serif);
-  font-size: 15px;
-  font-weight: 600;
-  color: var(--text);
-  margin-bottom: 0.4rem;
-  line-height: 1.4;
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--hitam-tinta);
+  margin-bottom: 0.5rem;
+  line-height: 1.3;
+  letter-spacing: -0.01em;
 }
 
 .desc {
-  font-size: 13px;
+  font-family: var(--font-body);
+  font-size: 15px;
   color: var(--text-2);
   line-height: 1.7;
   margin-bottom: 0.75rem;
+  flex: 1;
 }
 
 .imgWrap {
   margin-bottom: 0.75rem;
-  border-radius: 3px;
   overflow: hidden;
+  border: 1px solid var(--border-s);
 }
 
 .img {
   width: 100%;
   aspect-ratio: 16/9;
   object-fit: cover;
-  border-radius: 3px;
+  filter: grayscale(0.2) contrast(1.05);
 }
 
 .caption {
-  margin-top: 4px;
-  font-family: var(--font-mono);
-  font-size: 10px;
-  color: var(--text-4);
+  margin-top: 6px;
+  font-family: var(--font-ui);
+  font-size: 12px;
+  font-style: italic;
+  color: var(--abu-lama);
 }
 
 .links {
   display: flex;
-  gap: 0.75rem;
+  gap: 1rem;
   flex-wrap: wrap;
+  margin-top: 0.5rem;
 }
 
 .refLink {
   display: inline-flex;
   align-items: center;
-  gap: 3px;
-  font-family: var(--font-mono);
-  font-size: 10px;
-  letter-spacing: 0.06em;
-  color: var(--text-3);
+  gap: 4px;
+  font-family: var(--font-ui);
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--hitam-tinta);
   text-decoration: none;
-  border-bottom: 1px solid var(--border);
-  padding-bottom: 1px;
-  transition: color 0.15s, border-color 0.15s;
+  border-bottom: 1px solid var(--merah-perjuangan);
+  padding-bottom: 2px;
+  transition: color 0.2s;
 }
 
 .refLink:hover {
-  color: var(--primary);
-  border-color: var(--primary);
+  color: var(--merah-perjuangan);
 }
 
 .videoLink:hover {
-  color: var(--gold);
-  border-color: var(--gold);
+  color: var(--kuning-sorot);
+  border-bottom-color: var(--kuning-sorot);
+}
+
+/* Dark mode */
+[data-theme="dark"] .title {
+  color: var(--putih-arsip);
 }

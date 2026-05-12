@@ -1,5 +1,7 @@
+/* SectionHead — Anti-AI Slop: Tipografi kuat dengan garis merah */
+
 .wrap {
-  margin-bottom: 2.5rem;
+  margin-bottom: 4rem;
 }
 
 .center {
@@ -7,20 +9,29 @@
 }
 
 .eyebrow {
-  margin-bottom: 0.5rem;
-  color: var(--text-3);
+  font-family: var(--font-ui);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--abu-lama);
+  margin-bottom: 1rem;
 }
 
 .title {
-  color: var(--text);
-  margin-bottom: 0.75rem;
+  font-family: var(--font-display);
+  font-size: clamp(32px, 4vw, 48px);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--hitam-tinta);
+  margin-bottom: 1rem;
+  line-height: 1.15;
 }
 
 .line {
-  height: 2px;
-  width: 56px;
-  border-radius: 3px;
-  margin-bottom: 1rem;
+  height: 3px;
+  width: 80px;
+  margin-bottom: 1.5rem;
 }
 
 .center .line {
@@ -28,19 +39,25 @@
   margin-right: auto;
 }
 
-.primary { background: var(--primary); }
-.gold    { background: var(--gold); }
-.teal    { background: var(--teal); }
-.amber   { background: var(--amber); }
+.primary { background: var(--merah-perjuangan); }
+.gold    { background: var(--kuning-sorot); }
+.teal    { background: var(--hijau-tua); }
+.amber   { background: var(--kuning-sorot); }
 
 .subtitle {
-  max-width: 640px;
+  max-width: 720px;
+  font-family: var(--font-body);
   color: var(--text-2);
-  font-size: 15px;
+  font-size: 18px;
   line-height: 1.75;
 }
 
 .center .subtitle {
   margin-left: auto;
   margin-right: auto;
+}
+
+/* Dark mode */
+[data-theme="dark"] .title {
+  color: var(--putih-arsip);
 }

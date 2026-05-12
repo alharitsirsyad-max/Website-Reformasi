@@ -61,8 +61,13 @@
   padding: 2rem;
   border: 2px solid var(--border);
   border-radius: 3px;
-  background: #FFFFFF;
+  background: transparent;
   position: relative;
+}
+
+/* Habibie (bg-surface) - kotak luar dengan background sama seperti kebijakan card */
+:global(.bg-surface) .photoSideContent {
+  background: var(--bg);
 }
 
 .photoSideContent::before {
@@ -87,18 +92,22 @@
   display: none;
 }
 
-/* Habibie (bg-surface) - events cream inside white box */
+/* Habibie (bg-surface) - events tanpa background */
 :global(.bg-surface) .photoSideContent .eventCompact {
-  background: #F2EDE8;
+  background: transparent;
 }
 
 [data-theme="dark"] .photoSideContent {
   border-color: var(--border-s);
-  background: var(--bg);
+  background: transparent;
+}
+
+[data-theme="dark"] :global(.bg-surface) .photoSideContent {
+  background: var(--surface);
 }
 
 [data-theme="dark"] .photoSideContent .eventCompact {
-  background: var(--surface) !important;
+  background: transparent !important;
 }
 
 .eventList {
@@ -109,7 +118,7 @@
 
 .eventCompact {
   padding: 1rem;
-  background: var(--bg);
+  background: transparent;
   border: 1px solid var(--border-s);
   border-radius: 3px;
   transition: all 0.2s ease;
@@ -119,17 +128,17 @@
 
 /* Surface background for main sections */
 :global(.bg-main) .eventCompact {
-  background: var(--surface);
+  background: transparent;
   border-color: var(--border);
 }
 
 /* Dark mode overrides */
 [data-theme="dark"] .eventCompact {
-  background: var(--surface) !important;
+  background: transparent !important;
 }
 
 [data-theme="dark"] :global(.bg-main) .eventCompact {
-  background: var(--surface-2) !important;
+  background: transparent !important;
 }
 
 .eventCompact:hover {
