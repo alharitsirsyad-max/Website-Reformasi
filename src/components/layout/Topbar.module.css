@@ -1,22 +1,13 @@
 .topbar {
-<<<<<<< HEAD
-=======
-  height: var(--nav-h);
->>>>>>> 3190796648f825b187b0275e7ca94cc8d806e837
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
-<<<<<<< HEAD
   height: var(--nav-h);
-=======
-  z-index: 200;
->>>>>>> 3190796648f825b187b0275e7ca94cc8d806e837
   background: var(--bg);
   border-bottom: 1px solid var(--border-s);
   display: flex;
   align-items: center;
-<<<<<<< HEAD
   gap: 1rem;
   padding: 0 var(--section-px);
   z-index: 100;
@@ -33,26 +24,10 @@
   cursor: pointer;
   flex-shrink: 0;
   transition: background 0.15s, color 0.15s;
-=======
-  padding: 0 1.5rem;
-  gap: 1rem;
-}
-
-.hamburger {
-  width: 36px;
-  height: 36px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--navy);
-  border-radius: var(--radius);
-  transition: background 0.2s;
->>>>>>> 3190796648f825b187b0275e7ca94cc8d806e837
 }
 
 .hamburger:hover {
   background: var(--surface);
-<<<<<<< HEAD
   color: var(--text);
 }
 
@@ -79,38 +54,12 @@
   font-size: 10px;
   letter-spacing: 0.1em;
   color: var(--text-4);
-=======
-}
-
-.brandContainer {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-}
-
-.brand {
-  font-family: var(--font-serif);
-  font-weight: 600;
-  font-size: 16px;
-  color: var(--navy);
-}
-
-.badge {
-  font-family: var(--font-mono);
-  font-size: 10px;
-  background: var(--primary-bg);
-  border: 1px solid var(--primary-br);
-  color: var(--primary);
-  padding: 2px 6px;
-  border-radius: var(--radius);
->>>>>>> 3190796648f825b187b0275e7ca94cc8d806e837
 }
 
 .spacer {
   flex: 1;
 }
 
-<<<<<<< HEAD
 .presNav {
   display: flex;
   align-items: center;
@@ -168,34 +117,10 @@
     display: none;
   }
   .brandTag {
-=======
-.nav {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-
-.navLink {
-  font-size: 13px;
-  color: var(--text-2);
-  padding: 6px 12px;
-  border-radius: var(--radius);
-  transition: all 0.2s;
-}
-
-.navLink:hover {
-  background: var(--surface);
-  color: var(--navy);
-}
-
-@media (max-width: 768px) {
-  .nav {
->>>>>>> 3190796648f825b187b0275e7ca94cc8d806e837
     display: none;
   }
 }
 
-<<<<<<< HEAD
 /* Divider before Antikorupsi button */
 .divider {
   width: 1px;
@@ -237,21 +162,15 @@
   .divider {
     display: none;
   }
-  
+
   .antikorupsiBtn span {
     display: none;
   }
-  
+
   .antikorupsiBtn {
     padding: 8px;
     width: 36px;
     height: 36px;
     justify-content: center;
   }
-=======
-@media (max-width: 560px) {
-  .badge {
-    display: none;
-  }
->>>>>>> 3190796648f825b187b0275e7ca94cc8d806e837
 }

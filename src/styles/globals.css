@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 /* =====================================================
    REFORMASI INDONESIA — Global Styles & CSS Variables
    ===================================================== */
@@ -57,45 +56,37 @@
    ===================================================== */
 
 [data-theme="dark"] {
-  /* Backgrounds */
   --bg:           #0F0F0F;
   --surface:      #1A1A1A;
   --surface-2:    #252525;
   --border:       #3A3A3A;
   --border-s:     #2A2A2A;
 
-  /* Primary (lighter red for dark mode) */
   --primary:      #E63946;
   --primary-bg:   rgba(230,57,70,0.12);
   --primary-br:   rgba(230,57,70,0.3);
 
-  /* Gold (brighter for dark mode) */
   --gold:         #F4A261;
   --gold-bg:      rgba(244,162,97,0.12);
   --gold-br:      rgba(244,162,97,0.3);
 
-  /* Teal (brighter for dark mode) */
   --teal:         #2A9D8F;
   --teal-bg:      rgba(42,157,143,0.12);
   --teal-br:      rgba(42,157,143,0.3);
 
-  /* Amber (brighter for dark mode) */
   --amber:        #FFB84D;
   --amber-bg:     rgba(255,184,77,0.12);
   --amber-br:     rgba(255,184,77,0.3);
 
-  /* Navy (lighter for dark mode) */
   --navy:         #0A0A0A;
   --navy-mid:     #2A2A3A;
 
-  /* Text (inverted) */
   --text:         #F5F5F5;
   --text-2:       #D0D0D0;
   --text-3:       #A0A0A0;
   --text-4:       #707070;
 }
 
-/* Dark mode specific overrides */
 [data-theme="dark"] {
   color-scheme: dark;
 }
@@ -112,14 +103,12 @@
   background-color: var(--surface);
 }
 
-/* Force dark backgrounds for all cards in dark mode */
 [data-theme="dark"] [class*="card"],
 [data-theme="dark"] [class*="Card"] {
   background-color: var(--surface) !important;
   border-color: var(--border-s) !important;
 }
 
-/* Specific overrides for common card patterns */
 [data-theme="dark"] div[class*="card"] {
   background: var(--surface) !important;
 }
@@ -167,56 +156,20 @@
    ===================================================== */
 
 *, *::before, *::after {
-=======
-:root {
-  --bg:         #FAFAF8;
-  --surface:    #F2EDE8;
-  --surface-2:  #E8E0D8;
-  --border:     #D8CFC6;
-  --border-s:   #EAE4DC;
-  --primary:    #8B1A1A;
-  --primary-bg: rgba(139, 26, 26, 0.07);
-  --primary-br: rgba(139, 26, 26, 0.22);
-  --gold:       #B8892A;
-  --gold-bg:    rgba(184, 137, 42, 0.08);
-  --gold-br:    rgba(184, 137, 42, 0.25);
-  --teal:       #0F6E56;
-  --teal-bg:    rgba(15, 110, 86, 0.08);
-  --teal-br:    rgba(15, 110, 86, 0.2);
-  --navy:       #1A1A2E;
-  --text:       #1E1A16;
-  --text-2:     #4A3F35;
-  --text-3:     #7A706A;
-  --text-4:     #A09890;
-  --font-serif: 'Playfair Display', Georgia, serif;
-  --font-sans:  'Inter', system-ui, sans-serif;
-  --font-mono:  'JetBrains Mono', monospace;
-  --radius:     3px;
-  --nav-h:      56px;
-  --sidebar-w:  280px;
-  --section-px: 3rem;
-}
-
-* {
->>>>>>> 3190796648f825b187b0275e7ca94cc8d806e837
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
-<<<<<<< HEAD
 html {
   scroll-behavior: smooth;
   font-size: 15px;
 }
 
-=======
->>>>>>> 3190796648f825b187b0275e7ca94cc8d806e837
 body {
   background-color: var(--bg);
   color: var(--text);
   font-family: var(--font-sans);
-<<<<<<< HEAD
   font-weight: 400;
   line-height: 1.75;
   -webkit-font-smoothing: antialiased;
@@ -228,11 +181,6 @@ img {
   display: block;
   max-width: 100%;
   height: auto;
-=======
-  line-height: 1.6;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
->>>>>>> 3190796648f825b187b0275e7ca94cc8d806e837
 }
 
 a {
@@ -241,7 +189,6 @@ a {
 }
 
 button {
-<<<<<<< HEAD
   cursor: pointer;
   border: none;
   background: none;
@@ -258,20 +205,9 @@ h1, h2, h3, h4, h5, h6 {
   color: var(--text);
 }
 
-h1 {
-  font-size: clamp(34px, 5.5vw, 68px);
-  font-weight: 700;
-}
-
-h2 {
-  font-size: clamp(26px, 3.5vw, 42px);
-  font-weight: 700;
-}
-
-h3 {
-  font-size: clamp(22px, 3vw, 36px);
-  font-weight: 600;
-}
+h1 { font-size: clamp(34px, 5.5vw, 68px); font-weight: 700; }
+h2 { font-size: clamp(26px, 3.5vw, 42px); font-weight: 700; }
+h3 { font-size: clamp(22px, 3vw, 36px);   font-weight: 600; }
 
 p {
   font-size: 15px;
@@ -298,155 +234,23 @@ p {
   color: var(--text-4);
 }
 
-.section-padding {
-  padding: 5rem var(--section-px);
-}
-
 .container {
   max-width: var(--content-max);
   margin: 0 auto;
-  width: 100%;
+  padding: 0 var(--section-px);
 }
 
-/* =====================================================
-   SCROLLBAR HIDDEN
-   ===================================================== */
-
-.scrollbar-none {
-  scrollbar-width: none;
-  -ms-overflow-style: none;
+.section-padding {
+  padding-top: clamp(3rem, 6vw, 6rem);
+  padding-bottom: clamp(3rem, 6vw, 6rem);
 }
-.scrollbar-none::-webkit-scrollbar {
-  display: none;
-}
-
-/* =====================================================
-   SECTION ALTERNATING BACKGROUNDS
-   ===================================================== */
 
 .bg-main    { background-color: var(--bg); }
 .bg-surface { background-color: var(--surface); }
-.bg-amber   { background-color: var(--amber-bg); }
 
-
-/* ═══════════════════════════════════════════════════
-   KEYFRAME ANIMATIONS
-   ═══════════════════════════════════════════════════ */
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
+.scrollbar-none {
+  scrollbar-width: none;
 }
-
-@keyframes slideUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: none;
-  }
-}
-
-@keyframes growLine {
-  from {
-    width: 0;
-  }
-  to {
-    width: 100%;
-  }
-}
-
-@keyframes pulseDot {
-  0%, 100% {
-    opacity: 0.4;
-  }
-  50% {
-    opacity: 1;
-  }
-}
-
-@keyframes slideInLeft {
-  from {
-    opacity: 0;
-    transform: translateX(-28px);
-  }
-  to {
-    opacity: 1;
-    transform: none;
-  }
-}
-
-@keyframes slideInRight {
-  from {
-    opacity: 0;
-    transform: translateX(28px);
-  }
-  to {
-    opacity: 1;
-    transform: none;
-  }
-}
-
-/* Mobile: reduce transform distance */
-@media (max-width: 768px) {
-  @keyframes slideUp {
-    from {
-      opacity: 0;
-      transform: translateY(14px);
-    }
-    to {
-      opacity: 1;
-      transform: none;
-    }
-  }
-
-  @keyframes slideInLeft {
-    from {
-      opacity: 0;
-      transform: translateX(-14px);
-    }
-    to {
-      opacity: 1;
-      transform: none;
-    }
-  }
-
-  @keyframes slideInRight {
-    from {
-      opacity: 0;
-      transform: translateX(14px);
-    }
-    to {
-      opacity: 1;
-      transform: none;
-    }
-  }
-}
-
-/* Reduce motion for accessibility */
-@media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-=======
-  background: none;
-  border: none;
-  cursor: pointer;
-  font-family: inherit;
-}
-
-@media (max-width: 768px) {
-  :root {
-    --section-px: 1.5rem;
->>>>>>> 3190796648f825b187b0275e7ca94cc8d806e837
-  }
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
 }

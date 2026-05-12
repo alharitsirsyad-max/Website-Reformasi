@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import { X, Scale } from 'lucide-react';
 import { Link, useLocation } from 'wouter';
 import { scrollToSection } from '../../hooks';
@@ -26,14 +25,6 @@ const SECTIONS = [
     { label: 'Tim Penulis', id: 'tim' },
   ]},
 ] as const;
-=======
-import React from 'react';
-import styles from './Sidebar.module.css';
-import { 
-  Home, BookOpen, Clock, Shield, Users, 
-  TrendingUp, RefreshCw, PlayCircle, FileText, User 
-} from 'lucide-react';
->>>>>>> 3190796648f825b187b0275e7ca94cc8d806e837
 
 interface SidebarProps {
   isOpen: boolean;
@@ -41,7 +32,6 @@ interface SidebarProps {
   activeSection: string;
 }
 
-<<<<<<< HEAD
 export default function Sidebar({ isOpen, onClose, activeSection }: SidebarProps) {
   const [location, navigate] = useLocation();
   const isOnAntikorupsiPage = location === '/antikorupsi';
@@ -53,39 +43,13 @@ export default function Sidebar({ isOpen, onClose, activeSection }: SidebarProps
       setTimeout(() => scrollToSection(id), 300);
     } else {
       scrollToSection(id);
-=======
-const navItems = [
-  { id: 'beranda', label: 'Beranda', icon: Home },
-  { id: 'latar-belakang', label: 'Latar Belakang', icon: BookOpen },
-  { id: 'kronologi', label: 'Kronologi', icon: Clock },
-  { id: 'perjuangan', label: 'Perjuangan', icon: Shield },
-  { id: 'tokoh', label: 'Tokoh', icon: Users },
-  { id: 'dampak', label: 'Dampak', icon: TrendingUp },
-  { id: 'reformasi-kini', label: 'Reformasi Kini', icon: RefreshCw },
-  { id: 'media', label: 'Media', icon: PlayCircle },
-  { id: 'referensi', label: 'Referensi', icon: FileText },
-  { id: 'tim', label: 'Tim Penulis', icon: User }
-];
-
-export function Sidebar({ isOpen, onClose, activeSection }: SidebarProps) {
-  const scrollTo = (id: string) => {
-    const el = document.getElementById(id);
-    if (el) {
-      el.scrollIntoView({ behavior: 'smooth' });
-      onClose();
->>>>>>> 3190796648f825b187b0275e7ca94cc8d806e837
     }
   };
 
   return (
     <>
-<<<<<<< HEAD
       {isOpen && (
-        <div
-          className={styles.backdrop}
-          onClick={onClose}
-          aria-hidden="true"
-        />
+        <div className={styles.backdrop} onClick={onClose} aria-hidden="true" />
       )}
 
       <aside
@@ -94,11 +58,7 @@ export function Sidebar({ isOpen, onClose, activeSection }: SidebarProps) {
       >
         <div className={styles.header}>
           <span className={styles.sidebarTitle}>Reformasi Indonesia</span>
-          <button
-            className={styles.closeBtn}
-            onClick={onClose}
-            aria-label="Tutup menu"
-          >
+          <button className={styles.closeBtn} onClick={onClose} aria-label="Tutup menu">
             <X size={16} strokeWidth={1.5} />
           </button>
         </div>
@@ -117,10 +77,7 @@ export function Sidebar({ isOpen, onClose, activeSection }: SidebarProps) {
                     onClick={() => handleNav(item.id)}
                   >
                     {'dot' in item && item.dot && (
-                      <span
-                        className={styles.dot}
-                        style={{ background: item.dot }}
-                      />
+                      <span className={styles.dot} style={{ background: item.dot }} />
                     )}
                     {item.label}
                   </button>
@@ -129,7 +86,6 @@ export function Sidebar({ isOpen, onClose, activeSection }: SidebarProps) {
             </div>
           ))}
 
-          {/* Halaman Khusus */}
           <div className={styles.group}>
             <p className={`${styles.groupLabel} eyebrow`}>HALAMAN KHUSUS</p>
             <Link href="/antikorupsi">
@@ -148,26 +104,6 @@ export function Sidebar({ isOpen, onClose, activeSection }: SidebarProps) {
         <div className={styles.footer}>
           <p className="caption">Tugas Kelompok — Mata Pelajaran Sejarah</p>
         </div>
-=======
-      {isOpen && <div className={styles.backdrop} onClick={onClose} />}
-      <aside className={`${styles.sidebar} ${isOpen ? styles.open : ''}`}>
-        <nav className={styles.nav}>
-          {navItems.map((item) => {
-            const Icon = item.icon;
-            const isActive = activeSection === item.id;
-            return (
-              <button
-                key={item.id}
-                onClick={() => scrollTo(item.id)}
-                className={`${styles.navItem} ${isActive ? styles.active : ''}`}
-              >
-                <Icon size={18} strokeWidth={1.5} className={styles.icon} />
-                <span>{item.label}</span>
-              </button>
-            );
-          })}
-        </nav>
->>>>>>> 3190796648f825b187b0275e7ca94cc8d806e837
       </aside>
     </>
   );

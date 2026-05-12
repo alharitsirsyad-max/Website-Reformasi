@@ -1,14 +1,16 @@
-<<<<<<< HEAD
 import { tim } from '../../data/content';
 import styles from './Footer.module.css';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
+  const lastUpdated = new Date().toLocaleDateString('id-ID', {
+    day: 'numeric', month: 'long', year: 'numeric'
+  });
 
   return (
     <footer className={styles.footer}>
       <div className={styles.container}>
-        {/* Top Section - Brand & Description */}
+        {/* Top Section */}
         <div className={styles.top}>
           <div className={styles.brandSection}>
             <div className={styles.brand}>
@@ -37,10 +39,9 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Divider */}
         <div className={styles.divider} />
 
-        {/* Bottom Section - Credits & Copyright */}
+        {/* Bottom Section */}
         <div className={styles.bottom}>
           <div className={styles.credits}>
             <p className={styles.creditText}>
@@ -48,6 +49,9 @@ export default function Footer() {
             </p>
             <p className={styles.creditText}>
               Dibuat dengan semangat Reformasi 1998 — untuk Indonesia yang lebih demokratis dan bermartabat.
+            </p>
+            <p className={styles.lastUpdated}>
+              Terakhir diperbarui: {lastUpdated}
             </p>
           </div>
 
@@ -61,37 +65,6 @@ export default function Footer() {
             </span>
           </div>
         </div>
-=======
-import React from 'react';
-import styles from './Footer.module.css';
-import { meta } from '@/data/content';
-
-export function Footer() {
-  return (
-    <footer className={styles.footer}>
-      <div className={styles.content}>
-        <div className={styles.brandCol}>
-          <h2 className={styles.brandName}>{meta.brandName}</h2>
-          <p className={styles.tagline}>{meta.tagline}</p>
-        </div>
-        
-        <div className={styles.navCol}>
-          <a href="#beranda">Beranda</a>
-          <a href="#kronologi">Kronologi</a>
-          <a href="#tokoh">Tokoh</a>
-          <a href="#referensi">Referensi</a>
-        </div>
-        
-        <div className={styles.infoCol}>
-          <p>{meta.kelas}</p>
-          <p>{meta.mapel}</p>
-          <p>Tahun {meta.tahun}</p>
-        </div>
-      </div>
-      
-      <div className={styles.bottom}>
-        <p>&copy; {new Date().getFullYear()} {meta.brandName}. All rights reserved.</p>
->>>>>>> 3190796648f825b187b0275e7ca94cc8d806e837
       </div>
     </footer>
   );
