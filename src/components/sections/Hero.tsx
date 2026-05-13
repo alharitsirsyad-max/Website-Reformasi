@@ -1,3 +1,4 @@
+import { ChevronDown } from 'lucide-react';
 import { hero } from '../../data/content';
 import { scrollToSection } from '../../hooks';
 import styles from './Hero.module.css';
@@ -34,7 +35,23 @@ export default function Hero() {
               </div>
             ))}
           </div>
+
+          <button
+            className={styles.cta}
+            onClick={() => scrollToSection('pra-reformasi')}
+          >
+            {hero.ctaLabel}
+            <ChevronDown size={16} strokeWidth={1.5} />
+          </button>
         </div>
+      </div>
+
+      {/* Scroll indicator */}
+      <div className={styles.scrollIndicator}>
+        <div className={styles.scrollMouse}>
+          <div className={styles.scrollWheel}></div>
+        </div>
+        <span className={styles.scrollText}>Scroll</span>
       </div>
     </section>
   );
