@@ -1088,7 +1088,18 @@ export const tim: Tim = {
   tahunAjaran: '2025/2026',
   anggota: [
     { nama: 'Fajar Ghozalah Ndaki', peran: 'Riset & Konten Kebijakan', presensi: '14' },
-    { nama: 'Irsyad Abdul Jabbar Al Harits', peran: 'Desain & Visualisasi', presensi: '19' },
+    {
+      nama: 'Irsyad Abdul Jabbar Al Harits',
+      peran: 'Desain & Visualisasi',
+      presensi: '19',
+      sosmed: {
+        email: 'irsyadabdul999@gmail.com',
+        github: 'alharitsirsyad-max',
+        linkedin: 'https://www.linkedin.com/in/irsyad-abdul-jabbar-al-harits-963b97407',
+        whatsapp: '089513766615',
+        instagram: 'abdulll78880',
+      },
+    },
     { nama: 'Maulana Al Ghiffari', peran: 'Riset Peristiwa & Referensi', presensi: '23' },
   ],
 };

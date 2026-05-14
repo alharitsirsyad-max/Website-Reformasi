@@ -156,6 +156,13 @@ export interface Anggota {
   nama: string;
   peran: string;
   presensi?: string;
+  sosmed?: {
+    email?: string;
+    github?: string;
+    linkedin?: string;
+    whatsapp?: string;
+    instagram?: string;
+  };
 }
 
 export interface Tim {

@@ -10,6 +10,7 @@
   margin-bottom: 2.5rem;
 }
 
+/* Card */
 .card {
   background: var(--bg);
   border: 1px solid var(--border-s);
@@ -25,6 +26,30 @@
   transform: translateY(-3px);
 }
 
+.cardClickable {
+  cursor: pointer;
+}
+
+.cardClickable:hover {
+  border-color: var(--merah-perjuangan);
+}
+
+.cardHint {
+  display: block;
+  margin-top: 0.75rem;
+  font-family: var(--font-ui);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: var(--merah-perjuangan);
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.cardClickable:hover .cardHint {
+  opacity: 1;
+}
+
 .avatar {
   width: 64px;
   height: 64px;
@@ -38,14 +63,14 @@
 }
 
 .avatarInitial {
-  font-family: var(--font-serif);
+  font-family: var(--font-display);
   font-size: 20px;
-  font-weight: 600;
-  color: var(--primary);
+  font-weight: 700;
+  color: var(--merah-perjuangan);
 }
 
 .nama {
-  font-family: var(--font-serif);
+  font-family: var(--font-display);
   font-size: 15px;
   font-weight: 600;
   color: var(--text);
@@ -71,4 +96,130 @@
 .noteText {
   color: var(--text-3);
   line-height: 1.7;
+}
+
+/* ─── Popup ─────────────────────────────────────────── */
+
+.backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  animation: fadeIn 0.15s ease;
+}
+
+.popup {
+  background: var(--putih-arsip);
+  border-top: 3px solid var(--merah-perjuangan);
+  padding: 2.5rem 2rem 2rem;
+  width: 100%;
+  max-width: 340px;
+  text-align: center;
+  position: relative;
+  animation: popupIn 0.2s ease;
+}
+
+.popupClose {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  font-size: 14px;
+  color: var(--abu-lama);
+  cursor: pointer;
+  background: none;
+  border: none;
+  line-height: 1;
+  transition: color 0.15s;
+}
+
+.popupClose:hover {
+  color: var(--hitam-tinta);
+}
+
+/* Avatar di popup */
+.popupAvatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: var(--krem-dokumen);
+  border: 2px solid var(--merah-perjuangan);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.25rem;
+}
+
+.popupAvatarInitial {
+  font-family: var(--font-display);
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--merah-perjuangan);
+}
+
+.popupNama {
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--hitam-tinta);
+  margin-bottom: 0.25rem;
+  letter-spacing: -0.01em;
+}
+
+.popupPresensi {
+  font-family: var(--font-ui);
+  font-size: 13px;
+  color: var(--abu-lama);
+  margin-bottom: 1.75rem;
+}
+
+/* Ikon sosmed */
+.popupLinks {
+  display: flex;
+  justify-content: center;
+  gap: 1.25rem;
+}
+
+.popupLink {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--hitam-tinta);
+  transition: color 0.2s, transform 0.15s;
+}
+
+.popupLink:hover {
+  color: var(--merah-perjuangan);
+  transform: translateY(-2px);
+}
+
+/* Animasi */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes popupIn {
+  from { opacity: 0; transform: scale(0.95) translateY(8px); }
+  to   { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+/* Dark mode */
+[data-theme="dark"] .popup {
+  background: var(--hitam-tinta);
+}
+
+[data-theme="dark"] .popupNama {
+  color: var(--putih-arsip);
+}
+
+[data-theme="dark"] .popupLink {
+  color: var(--putih-arsip);
+}
+
+[data-theme="dark"] .popupAvatar {
+  background: var(--surface-2);
 }
