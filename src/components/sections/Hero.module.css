@@ -271,6 +271,10 @@
   .overlay {
     background: linear-gradient(to bottom, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.85) 100%);
   }
+
+  .scrollIndicator {
+    display: none;
+  }
 }
 
 @media (max-width: 640px) {

@@ -60,12 +60,10 @@ export default function PresidentPhotoHover({
   }, [showTooltip]);
 
   const handleMouseEnter = () => {
-    console.log('🖱️ Mouse enter:', presidentId);
     setIsHovered(true);
     start();
     if (audioEnabled) playPresidentSound(presidentId);
-    
-    // Hide tooltip and mark as shown
+
     if (showTip) {
       setShowTip(false);
       localStorage.setItem('hoverTipShown', 'true');
@@ -73,7 +71,6 @@ export default function PresidentPhotoHover({
   };
 
   const handleMouseLeave = () => {
-    console.log('🖱️ Mouse leave:', presidentId);
     setIsHovered(false);
     stop();
     stopPresidentSound();

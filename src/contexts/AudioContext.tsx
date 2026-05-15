@@ -29,7 +29,7 @@ const AUDIO_CONFIG = {
   presidents: {
     habibie: { soundUrl: '/sounds/habibie.mp3', volume: 0.9 },
     'gus-dur': { soundUrl: '/sounds/gus-dur.mp3', volume: 0.9 },
-    megawati: { soundUrl: '/sounds/megawati.mp3', volume: 1.0 }, // Increased from 0.9 to 1.0 (max)
+    megawati: { soundUrl: '/sounds/megawati.mp3', volume: 1.0 },
     sby: { soundUrl: '/sounds/sby.mp3', volume: 0.9 },
     jokowi: { soundUrl: '/sounds/jokowi.mp3', volume: 0.9 },
     prabowo: { soundUrl: '/sounds/prabowo.mp3', volume: 0.9 },
@@ -64,8 +64,8 @@ interface AudioProviderProps {
 }
 
 export function AudioProvider({ children }: AudioProviderProps) {
-  const [audioEnabled, setAudioEnabled] = useState(true); // Changed to true for auto-play
-  const [isMuted, setIsMuted] = useState(false); // Changed to false for auto-play
+  const [audioEnabled, setAudioEnabled] = useState(false);
+  const [isMuted, setIsMuted] = useState(true);
   const ambientRef = useRef<HTMLAudioElement | null>(null);
   const presidentSoundRef = useRef<HTMLAudioElement | null>(null);
   const currentAmbientVolume = useRef(AUDIO_CONFIG.ambientVolume);
@@ -73,32 +73,22 @@ export function AudioProvider({ children }: AudioProviderProps) {
 
   // Initialize ambient audio
   useEffect(() => {
-    console.log('🎵 Initializing audio system...');
     ambientRef.current = new Audio(AUDIO_CONFIG.ambientUrl);
     ambientRef.current.loop = true;
     ambientRef.current.volume = AUDIO_CONFIG.ambientVolume;
-    
-    // Handle ambient audio errors gracefully
-    ambientRef.current.addEventListener('error', (e) => {
-      console.log('⚠️ Ambient audio file not found (optional). Website will work without it.');
+
+    // Handle ambient audio errors silently
+    ambientRef.current.addEventListener('error', () => {
+      // Ambient audio is optional — fail silently
     });
-    
-    // Try to autoplay (will fail if no user interaction yet)
+
+    // Try to autoplay (will fail if no user interaction yet — that's fine)
     ambientRef.current.play()
-      .then(() => {
-        console.log('✅ Ambient audio auto-playing');
-        setHasInteracted(true);
-      })
-      .catch((err) => {
-        if (err.name === 'NotSupportedError' || err.name === 'NotFoundError') {
-          console.log('⚠️ Ambient audio file not found (optional)');
-        } else {
-          console.log('⚠️ Autoplay blocked (normal). User needs to interact first.');
-          console.log('Click anywhere on the page to enable audio.');
-        }
+      .then(() => { setHasInteracted(true); })
+      .catch(() => {
+        // Autoplay blocked by browser — will retry on first interaction
       });
 
-    // Cleanup on unmount
     return () => {
       if (ambientRef.current) {
         ambientRef.current.pause();
@@ -115,13 +105,9 @@ export function AudioProvider({ children }: AudioProviderProps) {
   useEffect(() => {
     const handleFirstInteraction = () => {
       if (!hasInteracted && audioEnabled && !isMuted) {
-        console.log('🎵 First user interaction detected, starting audio...');
         ambientRef.current?.play()
-          .then(() => {
-            console.log('✅ Ambient audio started');
-            setHasInteracted(true);
-          })
-          .catch((err) => console.log('❌ Audio play failed:', err));
+          .then(() => { setHasInteracted(true); })
+          .catch(() => {});
       }
     };
 
@@ -137,12 +123,8 @@ export function AudioProvider({ children }: AudioProviderProps) {
   // Handle audio enable/disable
   useEffect(() => {
     if (audioEnabled && !isMuted) {
-      console.log('🔊 Audio enabled, playing ambient...');
-      ambientRef.current?.play().catch((err) => {
-        console.log('❌ Ambient audio play failed:', err);
-      });
+      ambientRef.current?.play().catch(() => {});
     } else {
-      console.log('🔇 Audio disabled, pausing ambient...');
       ambientRef.current?.pause();
     }
   }, [audioEnabled, isMuted]);
@@ -166,88 +148,54 @@ export function AudioProvider({ children }: AudioProviderProps) {
   };
 
   const setAmbientVolume = (volume: number) => {
-    const targetVolume = volume;
-    currentAmbientVolume.current = targetVolume;
+    currentAmbientVolume.current = volume;
     if (ambientRef.current && audioEnabled && !isMuted) {
-      smoothFadeVolume(ambientRef.current, targetVolume, 800);
+      smoothFadeVolume(ambientRef.current, volume, 800);
     }
   };
 
   const playPresidentSound = (presidentId: string) => {
-    console.log('🔊 Attempting to play sound for:', presidentId);
-    console.log('🔊 Audio enabled:', audioEnabled, 'Muted:', isMuted);
-    
-    if (!audioEnabled || isMuted) {
-      console.log('❌ Audio not enabled or muted');
-      return;
-    }
+    if (!audioEnabled || isMuted) return;
 
-    // Stop previous president sound gracefully
+    // Stop previous president sound
     if (presidentSoundRef.current) {
       try {
         presidentSoundRef.current.pause();
         presidentSoundRef.current.currentTime = 0;
         presidentSoundRef.current = null;
-      } catch (e) {
-        console.log('⚠️ Error stopping previous sound:', e);
-      }
+      } catch (_) {}
     }
 
     const presidentConfig = AUDIO_CONFIG.presidents[presidentId];
-    console.log('🔊 President config:', presidentConfig);
-    
-    if (!presidentConfig) {
-      console.log('❌ No audio config for president:', presidentId);
-      return;
-    }
+    if (!presidentConfig) return;
 
-    const soundUrl = presidentConfig.soundUrl;
-    console.log('🔊 Playing URL:', soundUrl);
-    
     try {
-      const audio = new Audio(soundUrl);
+      const audio = new Audio(presidentConfig.soundUrl);
       audio.volume = presidentConfig.volume;
-      audio.loop = true; // Loop president sound
-      
-      // Store reference before playing
+      audio.loop = true;
       presidentSoundRef.current = audio;
-      
-      // Add error handler
-      audio.addEventListener('error', (e) => {
-        console.log('❌ Audio load error:', e);
+
+      audio.addEventListener('error', () => {
+        // Audio file not found — fail silently
       });
-      
-      audio.play()
-        .then(() => console.log('✅ President audio playing:', presidentId))
-        .catch((err) => {
-          // Only log if it's not an abort error (which is normal when quickly changing)
-          if (err.name !== 'AbortError') {
-            console.log('❌ President audio error:', err.name, err.message);
-          }
-        });
-    } catch (err) {
-      console.log('❌ Error creating audio:', err);
-    }
+
+      audio.play().catch((err) => {
+        if (err.name !== 'AbortError') {
+          // Play failed — fail silently
+        }
+      });
+    } catch (_) {}
   };
 
   const stopPresidentSound = () => {
-    console.log('🛑 Stopping president sound...');
-    
     if (presidentSoundRef.current) {
       try {
         const audio = presidentSoundRef.current;
-        
-        // Force stop immediately - no fade for looping audio
         audio.pause();
         audio.currentTime = 0;
-        audio.loop = false; // Disable loop
-        
-        // Clear reference
+        audio.loop = false;
         presidentSoundRef.current = null;
-        
-        console.log('✅ President sound stopped');
-      } catch (e) {
-        console.log('⚠️ Error stopping sound:', e);
+      } catch (_) {
         presidentSoundRef.current = null;
       }
     }
@@ -267,5 +215,4 @@ export function AudioProvider({ children }: AudioProviderProps) {
   return <AudioContext.Provider value={value}>{children}</AudioContext.Provider>;
 }
 
-// Export audio config for use in other components
 export { AUDIO_CONFIG };

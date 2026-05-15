@@ -699,8 +699,6 @@ export const presidents: President[] = [
     fotoGallery: [
       '/jokowi.jpeg',
       '/jokowi.jpeg', // Placeholder - user can replace with actual gallery photos
-      '/jokowi.jpeg',
-      '/jokowi.jpeg',
       '/jokowi.jpeg', // Placeholder - user can replace with actual gallery photos
     ],
     fotoKeterangan: 'Joko Widodo (Jokowi), Presiden ke-7 RI',
