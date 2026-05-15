@@ -40,8 +40,6 @@ Buka browser dan akses `http://localhost:5173`
 
 Website memiliki fitur audio enhancement yang meningkatkan pengalaman pengguna. Audio bersifat **opsional** - website tetap berfungsi sempurna tanpa file audio.
 
-**Untuk menambahkan audio, lihat panduan lengkap di [AUDIO_SETUP.md](./AUDIO_SETUP.md)**
-
 Singkatnya:
 1. Buat folder `public/sounds/`
 2. Tambahkan file audio sesuai panduan
@@ -147,5 +145,3 @@ Kontribusi sangat diterima! Silakan buat issue atau pull request.
 [Informasi kontak Anda]
 
 ---
-
-**Catatan**: Untuk panduan lengkap setup audio, lihat [AUDIO_SETUP.md](./AUDIO_SETUP.md)
