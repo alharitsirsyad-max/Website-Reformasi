@@ -14,7 +14,8 @@ export default function AnimateRepeat({
   className = '',
 }: AnimateRepeatProps) {
   const ref = useRef<HTMLDivElement>(null);
-  const isInView = useInView(ref, { triggerOnce: false, threshold: 0.15 });
+  // Use triggerOnce: true to prevent elements from becoming invisible when scrolling back
+  const isInView = useInView(ref, { triggerOnce: true, threshold: 0.1 });
   
   const [scrollDirection, setScrollDirection] = useState<'down' | 'up'>('down');
   const lastScrollY = useRef(0);

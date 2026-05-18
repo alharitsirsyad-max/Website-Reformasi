@@ -11,7 +11,6 @@ import AKKonteks from '../components/sections/antikorupsi/AKKonteks';
 import AKUpaya from '../components/sections/antikorupsi/AKUpaya';
 import AKKPKDetail from '../components/sections/antikorupsi/AKKPKDetail';
 import AKKasusBesar from '../components/sections/antikorupsi/AKKasusBesar';
-import AKIndeks from '../components/sections/antikorupsi/AKIndeks';
 import AKDampak from '../components/sections/antikorupsi/AKDampak';
 import AKKesimpulan from '../components/sections/antikorupsi/AKKesimpulan';
 import AKTableOfContents from '../components/sections/antikorupsi/AKTableOfContents';
@@ -23,7 +22,6 @@ const SECTION_IDS = [
   'ak-upaya',
   'ak-kpk',
   'ak-kasus',
-  'ak-indeks',
   'ak-dampak',
   'ak-kesimpulan',
 ];
@@ -54,7 +52,6 @@ export default function AntikorupsiPage() {
         <AKUpaya />
         <AKKPKDetail />
         <AKKasusBesar />
-        <AKIndeks />
         <AKDampak />
         <AKKesimpulan />
       </main>

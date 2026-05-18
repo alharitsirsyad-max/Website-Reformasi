@@ -5,7 +5,7 @@ import styles from './AKKesimpulan.module.css';
 
 export default function AKKesimpulan() {
   return (
-    <section id="ak-kesimpulan" className="bg-surface section-padding">
+    <section id="ak-kesimpulan" className="bg-main section-padding">
       <div className="container">
         <AnimateRepeat>
           <h2 className={styles.title}>{kesimpulan.judul}</h2>

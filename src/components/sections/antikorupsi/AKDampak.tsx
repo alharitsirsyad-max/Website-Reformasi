@@ -5,7 +5,7 @@ import styles from './AKDampak.module.css';
 
 export default function AKDampak() {
   return (
-    <section id="ak-dampak" className="bg-main section-padding">
+    <section id="ak-dampak" className="bg-surface section-padding">
       <div className="container">
         <AnimateRepeat>
           <h2 className={styles.title}>Dampak & Tantangan</h2>

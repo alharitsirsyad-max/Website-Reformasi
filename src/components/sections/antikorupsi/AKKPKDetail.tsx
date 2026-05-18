@@ -48,11 +48,6 @@ export default function AKKPKDetail() {
         </div>
 
         <AnimateRepeat delay={300}>
-          <div className={styles.highlight}>
-            <h4 className={styles.highlightTitle}>Kasus Ikonik</h4>
-            <p>{kpkDetail.kasusIkonik}</p>
-          </div>
-
           <div className={styles.tantangan}>
             <h4 className={styles.tantanganTitle}>Tantangan & Upaya Pelemahan</h4>
             <p>{kpkDetail.tantangan}</p>

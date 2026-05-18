@@ -9,6 +9,9 @@
 .animateRepeat.visible {
   opacity: 1;
   transform: none !important;
+  /* Once visible, stay visible even when scrolling back */
+  transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1),
+              transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* Scroll Down Animation - Fade up from bottom */
